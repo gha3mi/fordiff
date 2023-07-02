@@ -22,8 +22,8 @@ Numerical differentiation
 - [x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable
 - [x] Complex-step: f(x) f is a vector-valued function and x is a vector variable
 - [x] Finite Difference: f(x) f is a scalar-valued function and x is a scalar variable
-- [ ] Finite Difference: f(x) f is a scalar-valued function and x is a vector variable
-- [ ] Finite Difference: f(x) f is a vector-valued function and x is a vector variable
+- [x] Finite Difference: f(x) f is a scalar-valued function and x is a vector variable
+- [x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable
 - [ ] Automatic Differentiation
 -----
 ## Installation
