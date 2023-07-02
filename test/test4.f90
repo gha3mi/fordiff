@@ -10,7 +10,7 @@ contains
       real(rk), intent(in) :: x
       real(rk)             :: f
 
-      f = x**2
+      f = x**2 + 2.0_rk*x
 
    end function func4
 
