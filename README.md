@@ -8,6 +8,7 @@ Numerical differentiation
 
 - [ForDiff](#fordiff)
   - [Table of Contents](#table-of-contents)
+  - [TO DO](#to-do)
   - [Installation](#installation)
     - [fpm](#fpm)
   - [Usage](#usage)
@@ -16,6 +17,13 @@ Numerical differentiation
   - [Contributing](#contributing)
 -----
 
+## TO DO
+- [x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable
+- [x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable
+- [x] Complex-step: f(x) f is a vector-valued function and x is a vector variable
+- [ ] Finite Difference
+- [ ] Automatic Differentiation
+-----
 ## Installation
 
 ### fpm
