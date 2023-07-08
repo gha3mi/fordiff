@@ -113,7 +113,7 @@ fpm @gfortran
 ## Documentation
 To generate the documentation for the `fordiff` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
 ```bash
-ford project.yml
+ford ford.yml
 ```
 
 -----
