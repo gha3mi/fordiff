@@ -1,12 +1,14 @@
-# ForDiff
-Numerical differentiation
+![ForDiff](media/logo.png)
+============
+
+**ForDiff**: Numerical differentiation
 
 -----
 
 
 ## Table of Contents
 
-- [ForDiff](#fordiff)
+- [](#)
   - [Table of Contents](#table-of-contents)
   - [TO DO](#to-do)
   - [Installation](#installation)
