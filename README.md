@@ -36,7 +36,7 @@ fordiff can be cloned and then built using [fpm](https://github.com/fortran-lang
 ```bash
 git clone https://github.com/gha3mi/fordiff.git
 cd fordiff
-fpm install --perfix .
+fpm install --prefix .
 ```
 
 Or you can easily include this package as a dependency in your `fpm.toml` file.
