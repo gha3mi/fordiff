@@ -1,54 +1,33 @@
-![ForDiff](media/logo.png)
-============
+[![GitHub](https://img.shields.io/badge/GitHub-fordiff-blue.svg?style=social&logo=github)](https://github.com/gha3mi/fordiff)
+[![Version](https://img.shields.io/github/release/gha3mi/fordiff.svg)](https://github.com/gha3mi/fordiff/releases/latest)
+[![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/fordiff/)
+[![License](https://img.shields.io/github/license/gha3mi/fordiff?color=green)](https://github.com/gha3mi/fordiff/blob/main/LICENSE)
+[![Build](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml)
 
-**ForDiff**: Numerical differentiation
-
------
+**ForDiff**: A Fortran library for numericall differentiation
 
 
 ## Table of Contents
 
-- [](#)
-  - [Table of Contents](#table-of-contents)
-  - [TO DO](#to-do)
-  - [Installation](#installation)
-    - [fpm](#fpm)
-  - [Usage](#usage)
-  - [Tests](#tests)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
------
+- [Table of Contents](#table-of-contents)
+- [fpm dependency](#fpm-dependency)
+- [Usage](#usage)
+- [Run Tests](#run-tests)
+- [TO DO](#to-do)
+- [API documentation](#api-documentation)
+- [Contributing](#contributing)
 
-## TO DO
-- [x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable
-- [x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable
-- [x] Complex-step: f(x) f is a vector-valued function and x is a vector variable
-- [x] Finite Difference: f(x) f is a scalar-valued function and x is a scalar variable
-- [x] Finite Difference: f(x) f is a scalar-valued function and x is a vector variable
-- [x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable
-- [ ] Automatic Differentiation
------
-## Installation
+## fpm dependency
 
-### fpm
-fordiff can be cloned and then built using [fpm](https://github.com/fortran-lang/fpm), following the instructions provided in the documentation available on Fortran Package Manager.
-
-```bash
-git clone https://github.com/gha3mi/fordiff.git
-cd fordiff
-fpm install --prefix .
-```
-
-Or you can easily include this package as a dependency in your `fpm.toml` file.
+To use `ForDiff` as a dependency in your fpm project, include the following line in your `fpm.toml` file:
 
 ```toml
 [dependencies]
 fordiff = {git="https://github.com/gha3mi/fordiff.git"}
 ```
 
------
-
 ## Usage
+
 Here is an example of how to use the `fordiff` module in your Fortran code:
 ```fortran
 module mod_func1
@@ -84,41 +63,37 @@ program test1
 
 end program test1
 ```
------
 
-## Tests
+## Run Tests
 
 The `tests` directory contains test programs to verify the functionality of the `fordiff` module. To run the tests using `fpm`, you can use response files for specific compilers:
 
-- For Intel Fortran Compiler (ifort):
 ```bash
-fpm @ifort
+fpm @test-<compiler>
 ```
 
-- For Intel Fortran Compiler (ifx):
-```bash
-fpm @ifx
-```
+`<compiler>: gfortran, ifx, ifort, nvfortran`
 
-- For NVIDIA Compiler (nvfortran):
-```bash
-fpm @nvidia
-```
+## TO DO
+- [x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable
+- [x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable
+- [x] Complex-step: f(x) f is a vector-valued function and x is a vector variable
+- [x] Finite Difference: f(x) f is a scalar-valued function and x is a scalar variable
+- [x] Finite Difference: f(x) f is a scalar-valued function and x is a vector variable
+- [x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable
+- [ ] Automatic Differentiation
 
-- For GNU Fortran Compiler (gfortran):
-```bash
-fpm @gfortran
-```
+## API documentation
 
------
+The most up-to-date API documentation for the main branch is available
+[here](https://gha3mi.github.io/fordiff/).
+To generate the API documentation for `ForDiff` using
+[ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
+command:
 
-## Documentation
-To generate the documentation for the `fordiff` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
-```bash
+```shell
 ford ford.yml
 ```
-
------
 
 ## Contributing
 
