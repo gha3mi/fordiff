@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/gha3mi/fordiff?color=green)](https://github.com/gha3mi/fordiff/blob/main/LICENSE)
 [![Build](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml)
 
-**ForDiff**: A Fortran library for numericall differentiation
+**ForDiff**: A Fortran library for numerical differentiation
 
 
 ## Table of Contents
