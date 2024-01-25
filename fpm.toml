@@ -52,3 +52,19 @@ main       = "test5.f90"
 name       = "test6"
 source-dir = "test"
 main       = "test6.f90"
+
+
+[[example]]
+name       = "demo1"
+source-dir = "example"
+main       = "demo1.f90"
+
+[[example]]
+name       = "demo2"
+source-dir = "example"
+main       = "demo2.f90"
+
+[[example]]
+name       = "demo3"
+source-dir = "example"
+main       = "demo3.f90"
