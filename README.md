@@ -74,7 +74,7 @@ fpm @test-<compiler>
 
 `<compiler>: gfortran, ifx, ifort, nvfortran`
 
-## TO DO
+## TODO
 - [x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable
 - [x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable
 - [x] Complex-step: f(x) f is a vector-valued function and x is a vector variable
