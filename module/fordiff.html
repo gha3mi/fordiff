@@ -70,6 +70,8 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause License</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
@@ -168,7 +170,8 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>Module for numerical differentiation using complex step differentiation and finite difference methods</p>
+<p>for real(kind=rk) and complex(kind=rk). Use -DREAL32 for real kind 4 and -DREAL64 for real kind 8. Default is real kind 8.</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
@@ -491,6 +494,9 @@ large graphs.</div>
       <h3>public        interface <a href='../interface/derivative.html'>derivative</a> 
       </h3>
     </div>
+      <div class="card-body">
+        <p>Derivative interface</p>
+      </div>
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
@@ -501,8 +507,8 @@ large graphs.</div>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  <p>Calculates the derivative of a scalar-valued function f
-w.r.t. a scalar-valued variable x using complex step differentiation.</p>
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using complex step differentiation.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -546,7 +552,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -556,13 +562,13 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk)</small>
     </h6>
-    
+    <p>scalar complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x"></span>
+              <span class="anchor" id="variable-x~6"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -572,7 +578,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -587,7 +593,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -597,7 +603,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
           <li class="list-group-item">
@@ -654,7 +660,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -664,13 +670,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk)</small>
     </h6>
-    
+    <p>scalar complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~2"></span>
+              <span class="anchor" id="variable-x~7"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -680,7 +686,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -695,7 +701,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -705,7 +711,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
           <li class="list-group-item">
@@ -762,7 +768,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -772,13 +778,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~3"></span>
+              <span class="anchor" id="variable-x~8"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -788,7 +794,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -803,7 +809,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -813,7 +819,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
           <li class="list-group-item">
@@ -825,7 +831,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -869,7 +876,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar variable</p>
             </td>
         </tr>
     </tbody>
@@ -879,13 +886,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~4"></span>
+              <span class="anchor" id="variable-x~9"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -895,7 +902,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -910,7 +917,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -925,7 +932,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -935,7 +942,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
           <li class="list-group-item">
@@ -947,7 +954,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -991,7 +999,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -1001,13 +1009,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function        </p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~8"></span>
+              <span class="anchor" id="variable-x~13"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1017,7 +1025,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -1032,7 +1040,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -1047,7 +1055,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -1057,7 +1065,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
           <li class="list-group-item">
@@ -1069,7 +1077,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1113,7 +1122,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -1123,13 +1132,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~12"></span>
+              <span class="anchor" id="variable-x~17"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1139,7 +1148,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -1154,7 +1163,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -1169,7 +1178,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -1179,7 +1188,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
           </li>
     </ul>
@@ -1200,8 +1209,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  <p>Calculates the derivative of a scalar-valued function f
-w.r.t. a scalar-valued variable x using complex step differentiation.</p>
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using complex step differentiation.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1245,7 +1254,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -1255,13 +1264,13 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk)</small>
     </h6>
-    
+    <p>scalar complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x"></span>
+              <span class="anchor" id="variable-x~6"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -1271,7 +1280,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -1286,7 +1295,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -1296,7 +1305,7 @@ w.r.t. a scalar-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1354,7 +1363,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -1364,13 +1373,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk)</small>
     </h6>
-    
+    <p>scalar complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~2"></span>
+              <span class="anchor" id="variable-x~7"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1380,7 +1389,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -1395,7 +1404,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -1405,7 +1414,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1463,7 +1472,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector complex variable</p>
             </td>
         </tr>
     </tbody>
@@ -1473,13 +1482,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>complex(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector complex function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~3"></span>
+              <span class="anchor" id="variable-x~8"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1489,7 +1498,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -1504,7 +1513,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for complex step differentiation</p>
             </td>
         </tr>
     </tbody>
@@ -1514,7 +1523,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1527,7 +1536,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1571,7 +1581,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar variable</p>
             </td>
         </tr>
     </tbody>
@@ -1581,13 +1591,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~4"></span>
+              <span class="anchor" id="variable-x~9"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -1597,7 +1607,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -1612,7 +1622,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -1627,7 +1637,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -1637,7 +1647,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1650,7 +1660,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using the central finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1694,7 +1705,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar variable</p>
             </td>
         </tr>
     </tbody>
@@ -1704,13 +1715,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~5"></span>
+              <span class="anchor" id="variable-x~10"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -1720,7 +1731,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -1735,7 +1746,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -1745,7 +1756,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1758,7 +1769,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using the forward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1802,7 +1814,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar variable</p>
             </td>
         </tr>
     </tbody>
@@ -1812,13 +1824,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~6"></span>
+              <span class="anchor" id="variable-x~11"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -1828,7 +1840,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -1843,7 +1855,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -1853,7 +1865,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1866,7 +1878,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+using the backward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1910,7 +1923,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>scalar variable</p>
             </td>
         </tr>
     </tbody>
@@ -1920,13 +1933,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~7"></span>
+              <span class="anchor" id="variable-x~12"></span>
               real(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -1936,7 +1949,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>scalar variable</p>
             </td>
         </tr>
         <tr>
@@ -1951,7 +1964,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -1961,7 +1974,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -1974,7 +1987,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2018,7 +2032,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2028,13 +2042,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function        </p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~8"></span>
+              <span class="anchor" id="variable-x~13"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2044,7 +2058,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2059,7 +2073,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -2074,7 +2088,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -2084,7 +2098,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2097,7 +2111,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+using the central finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2141,7 +2156,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2151,13 +2166,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~9"></span>
+              <span class="anchor" id="variable-x~14"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2167,7 +2182,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2182,7 +2197,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2192,7 +2207,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2205,7 +2220,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+using the forward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2249,7 +2265,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2259,13 +2275,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~10"></span>
+              <span class="anchor" id="variable-x~15"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2275,7 +2291,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2290,7 +2306,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2300,7 +2316,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2313,7 +2329,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+using the backward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2357,7 +2374,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2367,13 +2384,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk)</small>
     </h6>
-    
+    <p>scalar function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~11"></span>
+              <span class="anchor" id="variable-x~16"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2383,7 +2400,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2398,7 +2415,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2408,7 +2425,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(size(x))</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2421,7 +2438,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using finite difference methods (forward, backward, central).</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2465,7 +2483,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2475,13 +2493,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~12"></span>
+              <span class="anchor" id="variable-x~17"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2491,7 +2509,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2506,7 +2524,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
         <tr>
@@ -2521,7 +2539,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>finite difference method (forward, backward, central)</p>
             </td>
         </tr>
     </tbody>
@@ -2531,7 +2549,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2544,7 +2562,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using the central finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2588,7 +2607,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2598,13 +2617,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~13"></span>
+              <span class="anchor" id="variable-x~18"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2614,7 +2633,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2629,7 +2648,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2639,7 +2658,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2652,7 +2671,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using the forward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2696,7 +2716,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2706,13 +2726,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~14"></span>
+              <span class="anchor" id="variable-x~19"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2722,7 +2742,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2737,7 +2757,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2747,7 +2767,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2760,7 +2780,8 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
     </dl>
 
-  
+  <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using the backward finite difference method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -2804,7 +2825,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -2814,13 +2835,13 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~15"></span>
+              <span class="anchor" id="variable-x~20"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2830,7 +2851,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-
+<p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -2845,7 +2866,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-
+<p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -2855,7 +2876,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
     Return Value
     <small>real(kind=rk), dimension(:,:), allocatable</small>
     </h4>
-    
+    <p>derivative of f w.r.t. x</p>
 
     </div>
   </div>
@@ -2881,7 +2902,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-25T15:51:22.429874             </p>
+ on 2024-01-25T16:17:39.687410             </p>
           </div>
         </div>
         <br>

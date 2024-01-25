@@ -144,6 +144,8 @@
 </h2>
     
 
+    <p>Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+using the central finite difference method.</p>
 
 
     <h3>Arguments</h3>
@@ -188,7 +190,7 @@
             <td>::</td>
             <td><strong>z</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
     </tbody>
@@ -198,13 +200,13 @@
     Return Value
     <small>real(kind=rk), dimension(:), allocatable</small>
     </h6>
-    
+    <p>vector function</p>
 </small>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~13"></span>
+              <span class="anchor" id="variable-x~18"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -214,7 +216,7 @@
             <td>::</td>
             <td><strong>x</strong></td>
             <td>
-                
+                <p>vector variable</p>
             </td>
         </tr>
         <tr>
@@ -229,7 +231,7 @@
             <td>::</td>
             <td><strong>h</strong></td>
             <td>
-                
+                <p>perturbation for finite difference methods</p>
             </td>
         </tr>
     </tbody>
@@ -237,11 +239,11 @@
 
       <h3>Return Value
         <small>
-          <span class="anchor" id="variable-dfdx~13"></span>
+          <span class="anchor" id="variable-dfdx~15"></span>
           real(kind=rk), dimension(:,:), allocatable
         </small>
       </h3>
-      
+      <p>derivative of f w.r.t. x</p>
     <br>
     <div class="card">
       <div class="card-header">
@@ -487,17 +489,18 @@ large graphs.</div>
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">impure function </span><span class="n">finite_difference_central_T1_T1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dfdx</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">               </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">temp_x</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                               </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">      </span><span class="c">!! vector variable</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">               </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span><span class="w">      </span><span class="c">!! perturbation for finite difference methods</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx</span><span class="w">   </span><span class="c">!! derivative of f w.r.t. x</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">temp_x</span><span class="w"> </span><span class="c">!! temporary vector variable</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                               </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w">      </span><span class="c">!! loop index</span>
 
 <span class="w">      </span><span class="k">interface</span>
-<span class="k">         impure function </span><span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">fz</span><span class="p">)</span>
+<span class="w">         </span><span class="c">!! vector-valued function to differentiate</span>
+<span class="w">         </span><span class="k">impure function </span><span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">fz</span><span class="p">)</span>
 <span class="w">            </span><span class="k">use </span><span class="n">kinds</span>
-<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">z</span>
-<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fz</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">z</span><span class="w">  </span><span class="c">!! vector variable</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fz</span><span class="w"> </span><span class="c">!! vector function</span>
 <span class="w">         </span><span class="k">end function </span><span class="n">f</span>
 <span class="w">      </span><span class="k">end interface</span>
 
@@ -530,7 +533,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-25T15:51:22.429874             </p>
+ on 2024-01-25T16:17:39.687410             </p>
           </div>
         </div>
         <br>

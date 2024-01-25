@@ -1,6 +1,10 @@
 module fordiff
+!! author: Seyed Ali Ghasemi
+!! license: BSD 3-Clause License
+!! Module for numerical differentiation using complex step differentiation and finite difference methods
+!!
 
-   use kinds
+   use kinds  !! for real(kind=rk) and complex(kind=rk). Use -DREAL32 for real kind 4 and -DREAL64 for real kind 8. Default is real kind 8.
 
    implicit none
 
@@ -9,6 +13,7 @@ module fordiff
 
    !===============================================================================
    interface derivative
+      !! Derivative interface
       procedure :: complex_step_derivative_T0_T0
       procedure :: complex_step_derivative_T0_T1
       procedure :: complex_step_derivative_T1_T1
@@ -22,18 +27,19 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   !> Calculates the derivative of a scalar-valued function f
-   !> w.r.t. a scalar-valued variable x using complex step differentiation.
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+   !> using complex step differentiation.
    impure function complex_step_derivative_T0_T0(f, x, h) result(dfdx)
-      real(rk), intent(in) :: x
-      real(rk), intent(in) :: h
-      real(rk)             :: dfdx
+      real(rk), intent(in) :: x    !! scalar variable
+      real(rk), intent(in) :: h    !! perturbation for complex step differentiation
+      real(rk)             :: dfdx !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            complex(rk), intent(in) :: z
-            complex(rk)             :: fz
+            complex(rk), intent(in) :: z  !! scalar complex variable
+            complex(rk)             :: fz !! scalar complex function
          end function f
       end interface
 
@@ -51,17 +57,18 @@ contains
    !> Calculates the derivative of a scalar-valued function f
    !> w.r.t. a vector-valued variable x using complex step differentiation.
    impure function complex_step_derivative_T0_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in) :: x
-      real(rk),               intent(in) :: h
-      real(rk), dimension(size(x))       :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer                            :: i
+      real(rk), dimension(:), intent(in) :: x      !! vector variable
+      real(rk),               intent(in) :: h      !! perturbation for complex step differentiation
+      real(rk), dimension(size(x))       :: dfdx   !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))       :: temp_x !! temporary vector variable
+      integer                            :: i      !! loop index
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            complex(rk), dimension(:), intent(in) :: z
-            complex(rk)                           :: fz
+            complex(rk), dimension(:), intent(in) :: z  !! vector complex variable
+            complex(rk)                           :: fz !! scalar complex function
          end function f
       end interface
 
@@ -82,17 +89,18 @@ contains
    !> Calculates the derivative of a vector-valued function f
    !> w.r.t. a vector-valued variable x using complex step differentiation.
    impure function complex_step_derivative_T1_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in)    :: x
-      real(rk),               intent(in)    :: h
-      real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))          :: temp_x
-      integer                               :: i
+      real(rk), dimension(:), intent(in)    :: x      !! vector variable
+      real(rk),               intent(in)    :: h      !! perturbation for complex step differentiation
+      real(rk), dimension(:,:), allocatable :: dfdx   !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))          :: temp_x !! temporary vector variable
+      integer                               :: i      !! loop index
 
       interface
+         !! vector-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            complex(rk), dimension(:), intent(in)  :: z
-            complex(rk), dimension(:), allocatable :: fz
+            complex(rk), dimension(:), intent(in)  :: z  !! vector complex variable
+            complex(rk), dimension(:), allocatable :: fz !! vector complex function
          end function f
       end interface
 
@@ -112,17 +120,20 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+   !> using finite difference methods (forward, backward, central).
    impure function finite_difference_T0_T0(f,x,h,method) result(dfdx)
-      real(rk),     intent(in) :: x
-      real(rk),     intent(in) :: h
-      character(*), intent(in) :: method
-      real(rk)                 :: dfdx
+      real(rk),     intent(in) :: x      !! scalar variable
+      real(rk),     intent(in) :: h      !! perturbation for finite difference methods
+      character(*), intent(in) :: method !! finite difference method (forward, backward, central)
+      real(rk)                 :: dfdx   !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), intent(in) :: z
-            real(rk)             :: fz
+            real(rk), intent(in) :: z  !! scalar variable
+            real(rk)             :: fz !! scalar function
          end function f
       end interface
 
@@ -143,16 +154,19 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+   !> using the central finite difference method.
    impure function finite_difference_central_T0_T0(f, x, h) result(dfdx)
-      real(rk), intent(in) :: x
-      real(rk), intent(in) :: h
-      real(rk)             :: dfdx
+      real(rk), intent(in) :: x    !! scalar variable
+      real(rk), intent(in) :: h    !! perturbation for finite difference methods
+      real(rk)             :: dfdx !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), intent(in) :: z
-            real(rk)             :: fz
+            real(rk), intent(in) :: z  !! scalar variable
+            real(rk)             :: fz !! scalar function
          end function f
       end interface
 
@@ -164,16 +178,19 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+   !> using the forward finite difference method.
    impure function finite_difference_forward_T0_T0(f, x, h) result(dfdx)
-      real(rk), intent(in) :: x
-      real(rk), intent(in) :: h
-      real(rk)             :: dfdx
+      real(rk), intent(in) :: x    !! scalar variable
+      real(rk), intent(in) :: h    !! perturbation for finite difference methods
+      real(rk)             :: dfdx !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), intent(in) :: z
-            real(rk)             :: fz
+            real(rk), intent(in) :: z  !! scalar variable
+            real(rk)             :: fz !! scalar function
          end function f
       end interface
 
@@ -185,16 +202,19 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a scalar-valued variable x
+   !> using the backward finite difference method.
    impure function finite_difference_backward_T0_T0(f, x, h) result(dfdx)
-      real(rk), intent(in) :: x
-      real(rk), intent(in) :: h
-      real(rk)             :: dfdx
+      real(rk), intent(in) :: x    !! scalar variable
+      real(rk), intent(in) :: h    !! perturbation for finite difference methods
+      real(rk)             :: dfdx !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), intent(in) :: z
-            real(rk)             :: fz
+            real(rk), intent(in) :: z  !! scalar variable
+            real(rk)             :: fz !! scalar function
          end function f
       end interface
 
@@ -206,17 +226,20 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+   !> using finite difference methods (forward, backward, central).
    impure function finite_difference_T0_T1(f,x,h,method) result(dfdx)
-      real(rk), dimension(:), intent(in) :: x
-      real(rk),               intent(in) :: h
-      character(*),           intent(in) :: method
-      real(rk), dimension(size(x))       :: dfdx
+      real(rk), dimension(:), intent(in) :: x      !! vector variable
+      real(rk),               intent(in) :: h      !! perturbation for finite difference methods
+      character(*),           intent(in) :: method !! finite difference method (forward, backward, central)
+      real(rk), dimension(size(x))       :: dfdx   !! derivative of f w.r.t. x
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in) :: z
-            real(rk)             :: fz
+            real(rk), dimension(:), intent(in) :: z  !! vector variable
+            real(rk)                           :: fz !! scalar function        
          end function f
       end interface
 
@@ -237,18 +260,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+   !> using the central finite difference method.
    impure function finite_difference_central_T0_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in) :: x
-      real(rk),               intent(in) :: h
-      real(rk), dimension(size(x))       :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer                            :: i
+      real(rk), dimension(:), intent(in) :: x       !! vector variable
+      real(rk),               intent(in) :: h       !! perturbation for finite difference methods
+      real(rk), dimension(size(x))       :: dfdx    !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))       :: temp_x  !! temporary vector variable
+      integer                            :: i       !! loop index
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in) :: z
-            real(rk)                           :: fz
+            real(rk), dimension(:), intent(in) :: z  !! vector variable
+            real(rk)                           :: fz !! scalar function
          end function f
       end interface
 
@@ -264,18 +290,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+   !> using the forward finite difference method.
    impure function finite_difference_forward_T0_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in) :: x
-      real(rk),               intent(in) :: h
-      real(rk), dimension(size(x))       :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer                            :: i
+      real(rk), dimension(:), intent(in) :: x       !! vector variable
+      real(rk),               intent(in) :: h       !! perturbation for finite difference methods
+      real(rk), dimension(size(x))       :: dfdx    !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))       :: temp_x  !! temporary vector variable
+      integer                            :: i       !! loop index
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in) :: z
-            real(rk)                           :: fz
+            real(rk), dimension(:), intent(in) :: z  !! vector variable
+            real(rk)                           :: fz !! scalar function
          end function f
       end interface
 
@@ -291,18 +320,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a scalar-valued function f w.r.t. a vector-valued variable x
+   !> using the backward finite difference method.
    impure function finite_difference_backward_T0_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in) :: x
-      real(rk),               intent(in) :: h
-      real(rk), dimension(size(x))       :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer                            :: i
+      real(rk), dimension(:), intent(in) :: x      !! vector variable
+      real(rk),               intent(in) :: h      !! perturbation for finite difference methods
+      real(rk), dimension(size(x))       :: dfdx   !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))       :: temp_x !! temporary vector variable
+      integer                            :: i      !! loop index
 
       interface
+         !! scalar-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in) :: z
-            real(rk)                           :: fz
+            real(rk), dimension(:), intent(in) :: z  !! vector variable
+            real(rk)                           :: fz !! scalar function
          end function f
       end interface
 
@@ -318,17 +350,20 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+   !> using finite difference methods (forward, backward, central).
    impure function finite_difference_T1_T1(f,x,h,method) result(dfdx)
-      real(rk), dimension(:), intent(in)    :: x
-      real(rk),               intent(in)    :: h
-      character(*),           intent(in)    :: method
-      real(rk), dimension(:,:), allocatable :: dfdx
+      real(rk), dimension(:), intent(in)    :: x       !! vector variable
+      real(rk),               intent(in)    :: h       !! perturbation for finite difference methods
+      character(*),           intent(in)    :: method  !! finite difference method (forward, backward, central)
+      real(rk), dimension(:,:), allocatable :: dfdx    !! derivative of f w.r.t. x
 
       interface
+         !! vector-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in)  :: z
-            real(rk), dimension(:), allocatable :: fz
+            real(rk), dimension(:), intent(in)  :: z  !! vector variable
+            real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
       end interface
 
@@ -349,18 +384,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+   !> using the central finite difference method.
    impure function finite_difference_central_T1_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in)    :: x
-      real(rk),               intent(in)    :: h
-      real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))          :: temp_x
-      integer                               :: i
+      real(rk), dimension(:), intent(in)    :: x      !! vector variable
+      real(rk),               intent(in)    :: h      !! perturbation for finite difference methods
+      real(rk), dimension(:,:), allocatable :: dfdx   !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))          :: temp_x !! temporary vector variable
+      integer                               :: i      !! loop index
 
       interface
+         !! vector-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in)  :: z
-            real(rk), dimension(:), allocatable :: fz
+            real(rk), dimension(:), intent(in)  :: z  !! vector variable
+            real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
       end interface
 
@@ -378,18 +416,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+   !> using the forward finite difference method.
    impure function finite_difference_forward_T1_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in)    :: x
-      real(rk),               intent(in)    :: h
-      real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))          :: temp_x
-      integer                               :: i
+      real(rk), dimension(:), intent(in)    :: x      !! vector variable
+      real(rk),               intent(in)    :: h      !! perturbation for finite difference methods
+      real(rk), dimension(:,:), allocatable :: dfdx   !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))          :: temp_x !! temporary vector variable
+      integer                               :: i      !! loop index
 
       interface
+         !! vector-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in)  :: z
-            real(rk), dimension(:), allocatable :: fz
+            real(rk), dimension(:), intent(in)  :: z  !! vector variable
+            real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
       end interface
 
@@ -407,18 +448,21 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
+   !> Calculates the derivative of a vector-valued function f w.r.t. a vector-valued variable x
+   !> using the backward finite difference method.
    impure function finite_difference_backward_T1_T1(f, x, h) result(dfdx)
-      real(rk), dimension(:), intent(in)    :: x
-      real(rk),               intent(in)    :: h
-      real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))          :: temp_x
-      integer                               :: i
+      real(rk), dimension(:), intent(in)    :: x       !! vector variable
+      real(rk),               intent(in)    :: h       !! perturbation for finite difference methods
+      real(rk), dimension(:,:), allocatable :: dfdx    !! derivative of f w.r.t. x
+      real(rk), dimension(size(x))          :: temp_x  !! temporary vector variable
+      integer                               :: i       !! loop index
 
       interface
+         !! vector-valued function to differentiate
          impure function f(z) result(fz)
             use kinds
-            real(rk), dimension(:), intent(in)  :: z
-            real(rk), dimension(:), allocatable :: fz
+            real(rk), dimension(:), intent(in)  :: z  !! vector variable
+            real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
       end interface
 
