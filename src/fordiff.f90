@@ -37,6 +37,9 @@ contains
          end function f
       end interface
 
+      ! Check for potential division by zero
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+
       dfdx = aimag(f(cmplx(x, h, rk))) / h
 
    end function complex_step_derivative_T0_T0
@@ -49,10 +52,11 @@ contains
    !> w.r.t. a vector-valued variable x using complex step differentiation.
    function complex_step_derivative_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
-      real(rk), intent(in)               :: h
+      real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
-      real(rk), dimension(size(x)) :: temp_x
-      integer :: i
+      real(rk), dimension(size(x))       :: temp_x
+      integer                            :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -60,6 +64,8 @@ contains
             complex(rk)                           :: fz
          end function f
       end interface
+
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       do i = 1, size(x)
          temp_x    = 0.0_rk
@@ -77,7 +83,7 @@ contains
    !> w.r.t. a vector-valued variable x using complex step differentiation.
    function complex_step_derivative_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
-      real(rk), intent(in)                  :: h
+      real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
       real(rk), dimension(size(x))          :: temp_x
       integer                               :: i
@@ -92,6 +98,8 @@ contains
 
       allocate(dfdx(size(f(cmplx(x,kind=rk))),size(x)))
 
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+
       do i = 1, size(x)
          temp_x    = 0.0_rk
          temp_x(i) = x(i)
@@ -105,27 +113,29 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    function finite_difference_T0_T0(f,x,h,method) result(dfdx)
-      real(rk), intent(in)     :: x
-      real(rk), intent(in)     :: h
-      real(rk)                 :: dfdx
+      real(rk),     intent(in) :: x
+      real(rk),     intent(in) :: h
       character(*), intent(in) :: method
+      real(rk)                 :: dfdx
 
       interface
-      function f(z) result(fz)
-         use kinds
-         real(rk), intent(in) :: z
-         real(rk)             :: fz
-      end function f
-   end interface
+         function f(z) result(fz)
+            use kinds
+            real(rk), intent(in) :: z
+            real(rk)             :: fz
+         end function f
+      end interface
 
-   select case (method)
-   case('forward')
-      dfdx = finite_difference_forward_T0_T0(f,x,h)
-   case('backward')
-      dfdx = finite_difference_backward_T0_T0(f,x,h)
-   case('central')
-      dfdx = finite_difference_central_T0_T0(f,x,h)
-   end select
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+
+      select case (method)
+       case('forward')
+         dfdx = finite_difference_forward_T0_T0(f,x,h)
+       case('backward')
+         dfdx = finite_difference_backward_T0_T0(f,x,h)
+       case('central')
+         dfdx = finite_difference_central_T0_T0(f,x,h)
+      end select
 
    end function finite_difference_T0_T0
    !===============================================================================
@@ -198,26 +208,28 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_T0_T1(f,x,h,method) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
-      real(rk), intent(in)               :: h
+      real(rk),               intent(in) :: h
+      character(*),           intent(in) :: method
       real(rk), dimension(size(x))       :: dfdx
-      character(*), intent(in) :: method
 
       interface
-      function f(z) result(fz)
-         use kinds
-         real(rk), dimension(:), intent(in) :: z
-         real(rk)             :: fz
-      end function f
-   end interface
+         function f(z) result(fz)
+            use kinds
+            real(rk), dimension(:), intent(in) :: z
+            real(rk)             :: fz
+         end function f
+      end interface
 
-   select case (method)
-   case('forward')
-      dfdx = finite_difference_forward_T0_T1(f,x,h)
-   case('backward')
-      dfdx = finite_difference_backward_T0_T1(f,x,h)
-   case('central')
-      dfdx = finite_difference_central_T0_T1(f,x,h)
-   end select
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+
+      select case (method)
+       case('forward')
+         dfdx = finite_difference_forward_T0_T1(f,x,h)
+       case('backward')
+         dfdx = finite_difference_backward_T0_T1(f,x,h)
+       case('central')
+         dfdx = finite_difference_central_T0_T1(f,x,h)
+      end select
 
    end function finite_difference_T0_T1
    !===============================================================================
@@ -227,10 +239,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_central_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
-      real(rk), intent(in)               :: h
+      real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
       real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      integer                            :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -253,10 +266,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_forward_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
-      real(rk), intent(in)               :: h
+      real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
       real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      integer                            :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -279,10 +293,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_backward_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
-      real(rk), intent(in)               :: h
+      real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
       real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      integer                            :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -305,9 +320,9 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_T1_T1(f,x,h,method) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
-      real(rk), intent(in)                  :: h
+      real(rk),               intent(in)    :: h
+      character(*),           intent(in)    :: method
       real(rk), dimension(:,:), allocatable :: dfdx
-      character(*), intent(in) :: method
 
       interface
          function f(z) result(fz)
@@ -317,15 +332,16 @@ contains
          end function f
       end interface
 
+      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
 
-   select case (method)
-   case('forward')
-      dfdx = finite_difference_forward_T1_T1(f,x,h)
-   case('backward')
-      dfdx = finite_difference_backward_T1_T1(f,x,h)
-   case('central')
-      dfdx = finite_difference_central_T1_T1(f,x,h)
-   end select
+      select case (method)
+       case('forward')
+         dfdx = finite_difference_forward_T1_T1(f,x,h)
+       case('backward')
+         dfdx = finite_difference_backward_T1_T1(f,x,h)
+       case('central')
+         dfdx = finite_difference_central_T1_T1(f,x,h)
+      end select
 
    end function finite_difference_T1_T1
    !===============================================================================
@@ -335,10 +351,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_central_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
-      real(rk), intent(in)                  :: h
+      real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      real(rk), dimension(size(x))          :: temp_x
+      integer                               :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -363,10 +380,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_forward_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
-      real(rk), intent(in)                  :: h
+      real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      real(rk), dimension(size(x))          :: temp_x
+      integer                               :: i
+
       interface
          function f(z) result(fz)
             use kinds
@@ -391,10 +409,11 @@ contains
    !> author: Seyed Ali Ghasemi
    function finite_difference_backward_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
-      real(rk), intent(in)                  :: h
+      real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
-      real(rk), dimension(size(x))       :: temp_x
-      integer :: i
+      real(rk), dimension(size(x))          :: temp_x
+      integer                               :: i
+
       interface
          function f(z) result(fz)
             use kinds
