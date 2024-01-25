@@ -1,4 +1,4 @@
-project:             fordiff
+project:             ForDiff
 version:             v0.1.0
 year:                2023
 project_github:      https://github.com/gha3mi/fordiff
@@ -6,6 +6,7 @@ author:              Seyed Ali Ghasemi
 email:               info@gha3mi.com
 github:              https://github.com/gha3mi
 src_dir:             ./src
+                     ./test
 output_dir:          ./doc
 source:              true
 graph:               true
@@ -16,3 +17,4 @@ display:             public
                      protected
 print_creation_date: true
 
+{!README.md!}
