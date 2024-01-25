@@ -140,7 +140,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>private  function complex_step_derivative_T0_T1(f, x, h) result(dfdx)  
+    <h2>private impure function complex_step_derivative_T0_T1(f, x, h) result(dfdx)  
 </h2>
     
 
@@ -162,7 +162,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         <tr>
             <td colspan="7">
               <small>    <h5>
-    private  function f(z) result(fz)  
+    private impure function f(z) result(fz)  
 
     </h5>
   
@@ -206,7 +206,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~5"></span>
+              <span class="anchor" id="variable-x~2"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -239,7 +239,7 @@ w.r.t. a vector-valued variable x using complex step differentiation.</p>
 
       <h3>Return Value
         <small>
-          <span class="anchor" id="variable-dfdx~4"></span>
+          <span class="anchor" id="variable-dfdx~2"></span>
           real(kind=rk), dimension(size(x))
         </small>
       </h3>
@@ -469,7 +469,7 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">function </span><span class="n">complex_step_derivative_T0_T1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dfdx</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">impure function </span><span class="n">complex_step_derivative_T0_T1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dfdx</span><span class="p">)</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">               </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx</span>
@@ -477,7 +477,7 @@ large graphs.</div>
 <span class="w">      </span><span class="kt">integer</span><span class="w">                            </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 
 <span class="w">      </span><span class="k">interface</span>
-<span class="k">         function </span><span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">fz</span><span class="p">)</span>
+<span class="k">         impure function </span><span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">fz</span><span class="p">)</span>
 <span class="w">            </span><span class="k">use </span><span class="n">kinds</span>
 <span class="w">            </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">z</span>
 <span class="w">            </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">                           </span><span class="kd">::</span><span class="w"> </span><span class="n">fz</span>
@@ -513,7 +513,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-25T14:56:23.391659             </p>
+ on 2024-01-25T15:51:22.429874             </p>
           </div>
         </div>
         <br>

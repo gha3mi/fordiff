@@ -24,13 +24,13 @@ contains
    !> author: Seyed Ali Ghasemi
    !> Calculates the derivative of a scalar-valued function f
    !> w.r.t. a scalar-valued variable x using complex step differentiation.
-   function complex_step_derivative_T0_T0(f, x, h) result(dfdx)
+   impure function complex_step_derivative_T0_T0(f, x, h) result(dfdx)
       real(rk), intent(in) :: x
       real(rk), intent(in) :: h
       real(rk)             :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             complex(rk), intent(in) :: z
             complex(rk)             :: fz
@@ -50,7 +50,7 @@ contains
    !> author: Seyed Ali Ghasemi
    !> Calculates the derivative of a scalar-valued function f
    !> w.r.t. a vector-valued variable x using complex step differentiation.
-   function complex_step_derivative_T0_T1(f, x, h) result(dfdx)
+   impure function complex_step_derivative_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
       real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
@@ -58,7 +58,7 @@ contains
       integer                            :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             complex(rk), dimension(:), intent(in) :: z
             complex(rk)                           :: fz
@@ -81,7 +81,7 @@ contains
    !> author: Seyed Ali Ghasemi
    !> Calculates the derivative of a vector-valued function f
    !> w.r.t. a vector-valued variable x using complex step differentiation.
-   function complex_step_derivative_T1_T1(f, x, h) result(dfdx)
+   impure function complex_step_derivative_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
       real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
@@ -89,7 +89,7 @@ contains
       integer                               :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             complex(rk), dimension(:), intent(in)  :: z
             complex(rk), dimension(:), allocatable :: fz
@@ -112,14 +112,14 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_T0_T0(f,x,h,method) result(dfdx)
+   impure function finite_difference_T0_T0(f,x,h,method) result(dfdx)
       real(rk),     intent(in) :: x
       real(rk),     intent(in) :: h
       character(*), intent(in) :: method
       real(rk)                 :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), intent(in) :: z
             real(rk)             :: fz
@@ -143,13 +143,13 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_central_T0_T0(f, x, h) result(dfdx)
+   impure function finite_difference_central_T0_T0(f, x, h) result(dfdx)
       real(rk), intent(in) :: x
       real(rk), intent(in) :: h
       real(rk)             :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), intent(in) :: z
             real(rk)             :: fz
@@ -164,13 +164,13 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_forward_T0_T0(f, x, h) result(dfdx)
+   impure function finite_difference_forward_T0_T0(f, x, h) result(dfdx)
       real(rk), intent(in) :: x
       real(rk), intent(in) :: h
       real(rk)             :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), intent(in) :: z
             real(rk)             :: fz
@@ -185,13 +185,13 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_backward_T0_T0(f, x, h) result(dfdx)
+   impure function finite_difference_backward_T0_T0(f, x, h) result(dfdx)
       real(rk), intent(in) :: x
       real(rk), intent(in) :: h
       real(rk)             :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), intent(in) :: z
             real(rk)             :: fz
@@ -206,14 +206,14 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_T0_T1(f,x,h,method) result(dfdx)
+   impure function finite_difference_T0_T1(f,x,h,method) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
       real(rk),               intent(in) :: h
       character(*),           intent(in) :: method
       real(rk), dimension(size(x))       :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in) :: z
             real(rk)             :: fz
@@ -237,7 +237,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_central_T0_T1(f, x, h) result(dfdx)
+   impure function finite_difference_central_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
       real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
@@ -245,7 +245,7 @@ contains
       integer                            :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in) :: z
             real(rk)                           :: fz
@@ -264,7 +264,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_forward_T0_T1(f, x, h) result(dfdx)
+   impure function finite_difference_forward_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
       real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
@@ -272,7 +272,7 @@ contains
       integer                            :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in) :: z
             real(rk)                           :: fz
@@ -291,7 +291,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_backward_T0_T1(f, x, h) result(dfdx)
+   impure function finite_difference_backward_T0_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in) :: x
       real(rk),               intent(in) :: h
       real(rk), dimension(size(x))       :: dfdx
@@ -299,7 +299,7 @@ contains
       integer                            :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in) :: z
             real(rk)                           :: fz
@@ -318,14 +318,14 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_T1_T1(f,x,h,method) result(dfdx)
+   impure function finite_difference_T1_T1(f,x,h,method) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
       real(rk),               intent(in)    :: h
       character(*),           intent(in)    :: method
       real(rk), dimension(:,:), allocatable :: dfdx
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in)  :: z
             real(rk), dimension(:), allocatable :: fz
@@ -349,7 +349,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_central_T1_T1(f, x, h) result(dfdx)
+   impure function finite_difference_central_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
       real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
@@ -357,7 +357,7 @@ contains
       integer                               :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in)  :: z
             real(rk), dimension(:), allocatable :: fz
@@ -378,7 +378,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_forward_T1_T1(f, x, h) result(dfdx)
+   impure function finite_difference_forward_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
       real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
@@ -386,7 +386,7 @@ contains
       integer                               :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in)  :: z
             real(rk), dimension(:), allocatable :: fz
@@ -407,7 +407,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   function finite_difference_backward_T1_T1(f, x, h) result(dfdx)
+   impure function finite_difference_backward_T1_T1(f, x, h) result(dfdx)
       real(rk), dimension(:), intent(in)    :: x
       real(rk),               intent(in)    :: h
       real(rk), dimension(:,:), allocatable :: dfdx
@@ -415,7 +415,7 @@ contains
       integer                               :: i
 
       interface
-         function f(z) result(fz)
+         impure function f(z) result(fz)
             use kinds
             real(rk), dimension(:), intent(in)  :: z
             real(rk), dimension(:), allocatable :: fz

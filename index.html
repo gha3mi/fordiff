@@ -77,13 +77,12 @@
 <a href="https://github.com/gha3mi/fordiff/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/fordiff?color=green"></a>
 <a href="https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml"><img alt="Build" src="https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml/badge.svg"></a></p>
 <p><strong>ForDiff</strong>: A Fortran library for numerical differentiation</p>
-<h2>Table of Contents</h2>
 <ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#fpm-dependency">fpm dependency</a></li>
 <li><a href="#usage">Usage</a></li>
+<li><a href="#run-demos">Run Demos</a></li>
 <li><a href="#run-tests">Run Tests</a></li>
-<li><a href="#to-do">TO DO</a></li>
+<li><a href="#todo">TODO</a></li>
 <li><a href="#api-documentation">API documentation</a></li>
 <li><a href="#contributing">Contributing</a></li>
 </ul>
@@ -94,39 +93,21 @@
 </code></pre></div>
 
 <h2>Usage</h2>
-<p>Here is an example of how to use the <code>fordiff</code> module in your Fortran code:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">module </span><span class="n">mod_func1</span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordiff</span>
+<span class="n">dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
+</code></pre></div>
 
-<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
-<span class="w">   </span><span class="k">implicit none</span>
+<h2>Run Demos</h2>
+<p><code>example/demo1.f90</code> demonstrates how to compute the derivative of a scalar-valued function w.r.t to a scalar variable using complex-step and finite-difference methods.</p>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo1
+</code></pre></div>
 
-<span class="k">contains</span>
+<p><code>example/demo2.f90</code> demonstrates how to compute the derivative of a scalar-valued function w.r.t to a vector variable using complex-step and finite-difference methods.</p>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo2
+</code></pre></div>
 
-<span class="k">   function </span><span class="n">func1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
-
-<span class="w">      </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="n">x</span>
-
-<span class="w">   </span><span class="k">end function </span><span class="n">func1</span>
-
-<span class="k">end module </span><span class="n">mod_func1</span>
-
-<span class="k">program </span><span class="n">test1</span>
-
-<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
-<span class="w">   </span><span class="k">use </span><span class="n">mod_func1</span>
-<span class="w">   </span><span class="k">use </span><span class="n">fordiff</span>
-
-<span class="w">   </span><span class="k">implicit none</span>
-
-<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx</span>
-
-<span class="w">   </span><span class="n">dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-100_rk</span><span class="p">)</span>
-
-<span class="w">   </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="n">dfdx</span>
-
-<span class="k">end program </span><span class="n">test1</span>
+<p><code>example/demo3.f90</code> demonstrates how to compute the derivative of a vector-valued function w.r.t to a vector variable using complex-step and finite-difference methods.</p>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo3
 </code></pre></div>
 
 <h2>Run Tests</h2>
@@ -217,7 +198,7 @@ command:</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-25T14:56:23.391659             </p>
+ on 2024-01-25T15:51:22.429874             </p>
           </div>
         </div>
         <br>
