@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for ForDiff">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="./favicon.png">
+
+    <title> ForDiff </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/pygments.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/local.css" rel="stylesheet">
+      <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">ForDiff <small>v0.1.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="./search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+        
+	<p> Find us on&hellip;</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/fordiff" role="button">GitHub</a>
+        </p>
+      </div>
+
+      <div class="row" id='text'>
+        <div class=col-md-8>
+          <h1>ForDiff</h1>
+          <p><a href="https://github.com/gha3mi/fordiff"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-fordiff-blue.svg?style=social&amp;logo=github"></a>
+<a href="https://github.com/gha3mi/fordiff/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/gha3mi/fordiff.svg"></a>
+<a href="https://gha3mi.github.io/fordiff/"><img alt="Documentation" src="https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg"></a>
+<a href="https://github.com/gha3mi/fordiff/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/fordiff?color=green"></a>
+<a href="https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml"><img alt="Build" src="https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml/badge.svg"></a></p>
+<p><strong>ForDiff</strong>: A Fortran library for numericall differentiation</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#fpm-dependency">fpm dependency</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#run-tests">Run Tests</a></li>
+<li><a href="#to-do">TO DO</a></li>
+<li><a href="#api-documentation">API documentation</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+<h2>fpm dependency</h2>
+<p>To use <code>ForDiff</code> as a dependency in your fpm project, include the following line in your <code>fpm.toml</code> file:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
+<span class="n">fordiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/fordiff.git&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+<h2>Usage</h2>
+<p>Here is an example of how to use the <code>fordiff</code> module in your Fortran code:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">module </span><span class="n">mod_func1</span>
+
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<span class="w">   </span><span class="k">implicit none</span>
+
+<span class="k">contains</span>
+
+<span class="k">   function </span><span class="n">func1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+
+<span class="w">      </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="n">x</span>
+
+<span class="w">   </span><span class="k">end function </span><span class="n">func1</span>
+
+<span class="k">end module </span><span class="n">mod_func1</span>
+
+<span class="k">program </span><span class="n">test1</span>
+
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<span class="w">   </span><span class="k">use </span><span class="n">mod_func1</span>
+<span class="w">   </span><span class="k">use </span><span class="n">fordiff</span>
+
+<span class="w">   </span><span class="k">implicit none</span>
+
+<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx</span>
+
+<span class="w">   </span><span class="n">dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-100_rk</span><span class="p">)</span>
+
+<span class="w">   </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="n">dfdx</span>
+
+<span class="k">end program </span><span class="n">test1</span>
+</code></pre></div>
+
+<h2>Run Tests</h2>
+<p>The <code>tests</code> directory contains test programs to verify the functionality of the <code>fordiff</code> module. To run the tests using <code>fpm</code>, you can use response files for specific compilers:</p>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@test-&lt;compiler&gt;
+</code></pre></div>
+
+<p><code>&lt;compiler&gt;: gfortran, ifx, ifort, nvfortran</code></p>
+<h2>TO DO</h2>
+<ul>
+<li>[x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable</li>
+<li>[x] Complex-step: f(x) f is a scalar-valued function and x is a vector variable</li>
+<li>[x] Complex-step: f(x) f is a vector-valued function and x is a vector variable</li>
+<li>[x] Finite Difference: f(x) f is a scalar-valued function and x is a scalar variable</li>
+<li>[x] Finite Difference: f(x) f is a scalar-valued function and x is a vector variable</li>
+<li>[x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable</li>
+<li>[ ] Automatic Differentiation</li>
+</ul>
+<h2>API documentation</h2>
+<p>The most up-to-date API documentation for the main branch is available
+<a href="https://gha3mi.github.io/fordiff/">here</a>.
+To generate the API documentation for <code>ForDiff</code> using
+<a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
+command:</p>
+<div class="codehilite"><pre><span></span><code>ford<span class="w"> </span>ford.yml
+</code></pre></div>
+
+<h2>Contributing</h2>
+<p>Contributions to fordiff are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.</p>
+        </div>
+          <div class="col-md-4">
+	        <div class="card card-body bg-light">
+              <h2 class="card-title">Developer Info</h2>
+              <h4 class="card-text">Seyed Ali Ghasemi</h4>
+              <p class="card-text"></p>
+                <div class="text-center"><div class="btn-group" role="group">
+                      <a class="btn btn-lg btn-primary" href="mailto:info@gha3mi.com"><i class="fa fa-envelope fa-lg"></i></a>
+                      <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                </div></div>
+            </div>
+          </div>
+      </div>
+        <div class="row">
+          <hr>
+          <div class="col-xs-6 col-sm-4">
+            <div>
+              <h3>Source Files</h3>
+              <ul><li><a href='sourcefile/fordiff.f90.html'>fordiff.f90</a></li><li><a href='sourcefile/test1.f90.html'>test1.f90</a></li><li><a href='sourcefile/test2.f90.html'>test2.f90</a></li><li><a href='sourcefile/test3.f90.html'>test3.f90</a></li><li><a href='sourcefile/test4.f90.html'>test4.f90</a></li><li><a href='sourcefile/test5.f90.html'>test5.f90</a></li><li><a href='sourcefile/test6.f90.html'>test6.f90</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <div>
+              <h3>Modules</h3>
+              <ul><li><a href='module/fordiff.html'>fordiff</a></li><li><a href='module/mod_func1.html'>mod_func1</a></li><li><a href='module/mod_func2.html'>mod_func2</a></li><li><a href='module/mod_func3.html'>mod_func3</a></li><li><a href='module/mod_func4.html'>mod_func4</a></li><li><a href='module/mod_func5.html'>mod_func5</a></li><li><a href='module/mod_func6.html'>mod_func6</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <div>
+              <h3>Procedures</h3>
+              <ul><li><a href='proc/complex_step_derivative_t0_t0.html'>complex_step_derivative_T0_T0</a></li><li><a href='proc/complex_step_derivative_t0_t1.html'>complex_step_derivative_T0_T1</a></li><li><a href='proc/complex_step_derivative_t1_t1.html'>complex_step_derivative_T1_T1</a></li><li><a href='interface/derivative.html'>derivative</a></li><li><a href='proc/finite_difference_backward_t0_t0.html'>finite_difference_backward_T0_T0</a></li><li><a href='proc/finite_difference_backward_t0_t1.html'>finite_difference_backward_T0_T1</a></li><li><a href='proc/finite_difference_backward_t1_t1.html'>finite_difference_backward_T1_T1</a></li><li><a href='proc/finite_difference_central_t0_t0.html'>finite_difference_central_T0_T0</a></li><li><a href='proc/finite_difference_central_t0_t1.html'>finite_difference_central_T0_T1</a></li><li><a href='proc/finite_difference_central_t1_t1.html'>finite_difference_central_T1_T1</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>ForDiff was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-01-25T14:30:44.082861             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="./tipuesearch/tipuesearch_content.js"></script>
+          <script src="./tipuesearch/tipuesearch_set.js"></script>
+          <script src="./tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
