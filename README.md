@@ -7,13 +7,11 @@
 **ForDiff**: A Fortran library for numerical differentiation
 
 
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
 - [fpm dependency](#fpm-dependency)
 - [Usage](#usage)
+- [Run Demos](#run-demos)
 - [Run Tests](#run-tests)
-- [TO DO](#to-do)
+- [TODO](#todo)
 - [API documentation](#api-documentation)
 - [Contributing](#contributing)
 
@@ -28,40 +26,29 @@ fordiff = {git="https://github.com/gha3mi/fordiff.git"}
 
 ## Usage
 
-Here is an example of how to use the `fordiff` module in your Fortran code:
 ```fortran
-module mod_func1
+use fordiff
+dfdx = derivative(f, x, h, method)
+```
 
-   use kinds
-   implicit none
+## Run Demos
 
-contains
+`example/demo1.f90` demonstrates how to compute the derivative of a scalar-valued function w.r.t to a scalar variable using complex-step and finite-difference methods.
 
-   function func1(x) result(f)
-      complex(rk), intent(in)  :: x
-      complex(rk)              :: f
+```bash
+fpm run --example demo1
+```
 
-      f = x**2 + 2.0_rk*x
+`example/demo2.f90` demonstrates how to compute the derivative of a scalar-valued function w.r.t to a vector variable using complex-step and finite-difference methods.
 
-   end function func1
+```bash
+fpm run --example demo2
+```
 
-end module mod_func1
+`example/demo3.f90` demonstrates how to compute the derivative of a vector-valued function w.r.t to a vector variable using complex-step and finite-difference methods.
 
-program test1
-
-   use kinds
-   use mod_func1
-   use fordiff
-
-   implicit none
-
-   real(rk) :: dfdx
-
-   dfdx = derivative(f=func1, x=1.0_rk, h=1e-100_rk)
-
-   print*,dfdx
-
-end program test1
+```bash
+fpm run --example demo3
 ```
 
 ## Run Tests
