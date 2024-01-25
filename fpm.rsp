@@ -2,22 +2,22 @@
 options test target --all
 options --profile release
 options --compiler gfortran
-options --flag "-Wno-line-truncation -O3 -march=native"
+options --flag "-O3 -march=native"
 
 @test-ifort
 options test target --all
 options --profile release
 options --compiler ifort
-options test --compiler ifort --flag "-O3 -xHost -mtune=native"
+options --flag "-O3 -xHost -mtune=native"
 
 @test-ifx
 options test target --all
 options --profile release
 options --compiler ifx
-options test --compiler ifx --flag "-O3 -xHost -mtune=native"
+options --flag "-O3 -xHost -mtune=native"
 
 @test-nvfortran
 options test target --all
 options --profile release
 options --compiler nvfortran
-options test --compiler nvfortran --flag "-O4 -mtune=native"
+options --flag "-O4 -mtune=native"
