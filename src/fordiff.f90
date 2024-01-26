@@ -44,7 +44,7 @@ contains
       end interface
 
       ! Check for potential division by zero
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       dfdx = aimag(f(cmplx(x, h, rk))) / h
 
@@ -72,7 +72,7 @@ contains
          end function f
       end interface
 
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       do i = 1, size(x)
          temp_x    = 0.0_rk
@@ -106,7 +106,7 @@ contains
 
       allocate(dfdx(size(f(cmplx(x,kind=rk))),size(x)))
 
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       do i = 1, size(x)
          temp_x    = 0.0_rk
@@ -137,7 +137,7 @@ contains
          end function f
       end interface
 
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       select case (method)
        case('forward')
@@ -243,7 +243,7 @@ contains
          end function f
       end interface
 
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       select case (method)
        case('forward')
@@ -367,7 +367,7 @@ contains
          end function f
       end interface
 
-      if (h == 0.0_rk) error stop 'Division by zero. Please provide a non-zero value for h.'
+      if (abs(h)<tiny(0.0_rk)) error stop 'Division by zero. Please provide a non-zero value for h.'
 
       select case (method)
        case('forward')
