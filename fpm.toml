@@ -20,6 +20,9 @@ implicit-typing   = false
 implicit-external = false
 source-form       = "free"
 
+[preprocess]
+[preprocess.cpp]
+
 [dependencies]
 kinds       = {git="https://github.com/gha3mi/kinds.git"}
 forunittest = {git="https://github.com/gha3mi/forunittest.git"}
