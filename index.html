@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,14 +12,29 @@
 
     <title> ForDiff </title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="./css/pygments.css" rel="stylesheet">
-    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="./css/fontawesome.min.css" rel="stylesheet">
+    <link href="./css/brands.min.css" rel="stylesheet">
+    <link href="./css/regular.min.css" rel="stylesheet">
+    <link href="./css/solid.min.css" rel="stylesheet">
+    <link href="./css/v4-font-face.min.css" rel="stylesheet">
+    <link href="./css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="./css/local.css" rel="stylesheet">
-      <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="./css/pygments.css" rel="stylesheet">
     <script src="./js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -27,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">ForDiff <small>v0.1.1</small></a>
+          <a class="navbar-brand" href="./index.html">ForDiff </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -59,14 +76,18 @@
     </div>
 
     <div class="container">
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+  <!-- Main component for a primary marketing message or call to action -->
+    <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+      
+        <p> Find us on&hellip;</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/fordiff" role="button">GitHub</a>
         
-	<p> Find us on&hellip;</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/fordiff" role="button">GitHub</a>
-        </p>
-      </div>
+        
+        
+        
+      </p>
+    </div>
 
       <div class="row" id='text'>
         <div class=col-md-8>
@@ -88,34 +109,33 @@
 </ul>
 <h2>fpm dependency</h2>
 <p>To use <code>ForDiff</code> as a dependency in your fpm project, include the following line in your <code>fpm.toml</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="n">fordiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/fordiff.git&quot;</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
+<span class="n">fordiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="o">=</span><span class="s">&quot;https://github.com/gha3mi/fordiff.git&quot;</span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <h2>Usage</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordiff</span>
-<span class="n">dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordiff</span><span class="w"></span>
+<span class="n">dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <h2>Run Demos</h2>
 <p><code>example/demo1.f90</code> demonstrates how to compute the derivative of a scalar-valued function w.r.t to a scalar variable using complex-step and finite-difference methods.</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo1
+<div class="codehilite"><pre><span></span><code>fpm run --example demo1
 </code></pre></div>
 
 <p><code>example/demo2.f90</code> demonstrates how to compute the derivative of a scalar-valued function w.r.t to a vector variable using complex-step and finite-difference methods.</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo2
+<div class="codehilite"><pre><span></span><code>fpm run --example demo2
 </code></pre></div>
 
 <p><code>example/demo3.f90</code> demonstrates how to compute the derivative of a vector-valued function w.r.t to a vector variable using complex-step and finite-difference methods.</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>demo3
+<div class="codehilite"><pre><span></span><code>fpm run --example demo3
 </code></pre></div>
 
 <h2>Run Tests</h2>
-<p>The <code>tests</code> directory contains test programs to verify the functionality of the <code>fordiff</code> module. To run the tests using <code>fpm</code>, you can use response files for specific compilers:</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@test-&lt;compiler&gt;
+<p>The <code>tests</code> directory contains test programs to verify the functionality of the <code>fordiff</code> module. To run the tests using <code>fpm</code>, you can use:</p>
+<div class="codehilite"><pre><span></span><code>fpm <span class="nb">test</span>
 </code></pre></div>
 
-<p><code>&lt;compiler&gt;: gfortran, ifx, ifort, nvfortran</code></p>
 <h2>TODO</h2>
 <ul>
 <li>[x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable</li>
@@ -126,26 +146,37 @@
 <li>[x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable</li>
 <li>[ ] Automatic Differentiation</li>
 </ul>
+<h2>CI Status</h2>
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
+
 <h2>API documentation</h2>
 <p>The most up-to-date API documentation for the main branch is available
 <a href="https://gha3mi.github.io/fordiff/">here</a>.
 To generate the API documentation for <code>ForDiff</code> using
 <a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
 command:</p>
-<div class="codehilite"><pre><span></span><code>ford<span class="w"> </span>ford.yml
+<div class="codehilite"><pre><span></span><code>ford README.md
 </code></pre></div>
 
 <h2>Contributing</h2>
 <p>Contributions to fordiff are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.</p>
         </div>
           <div class="col-md-4">
-	        <div class="card card-body bg-light">
+            <div class="card card-body bg-light">
               <h2 class="card-title">Developer Info</h2>
               <h4 class="card-text">Seyed Ali Ghasemi</h4>
               <p class="card-text"></p>
                 <div class="text-center"><div class="btn-group" role="group">
                       <a class="btn btn-lg btn-primary" href="mailto:info@gha3mi.com"><i class="fa fa-envelope fa-lg"></i></a>
-                      <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    
+                    
+                    
+                    
+                    
                 </div></div>
             </div>
           </div>
@@ -155,7 +186,7 @@ command:</p>
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Source Files</h3>
-              <ul><li><a href='sourcefile/fordiff.f90.html'>fordiff.f90</a></li><li><a href='sourcefile/test1.f90.html'>test1.f90</a></li><li><a href='sourcefile/test2.f90.html'>test2.f90</a></li><li><a href='sourcefile/test3.f90.html'>test3.f90</a></li><li><a href='sourcefile/test4.f90.html'>test4.f90</a></li><li><a href='sourcefile/test5.f90.html'>test5.f90</a></li><li><a href='sourcefile/test6.f90.html'>test6.f90</a></li></ul>
+              <ul><li><a href='sourcefile/demo1.f90.html'>demo1.f90</a></li><li><a href='sourcefile/demo2.f90.html'>demo2.f90</a></li><li><a href='sourcefile/demo3.f90.html'>demo3.f90</a></li><li><a href='sourcefile/fordiff.f90.html'>fordiff.f90</a></li><li><a href='sourcefile/test1.f90.html'>test1.f90</a></li><li><a href='sourcefile/test2.f90.html'>test2.f90</a></li><li><a href='sourcefile/test3.f90.html'>test3.f90</a></li><li><a href='sourcefile/test4.f90.html'>test4.f90</a></li><li><a href='sourcefile/test5.f90.html'>test5.f90</a></li><li><a href='sourcefile/test6.f90.html'>test6.f90</a></li></ul>
             </div>
             <div>
               <ul>
@@ -177,7 +208,7 @@ command:</p>
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Procedures</h3>
-              <ul><li><a href='proc/complex_step_derivative_t0_t0.html'>complex_step_derivative_T0_T0</a></li><li><a href='proc/complex_step_derivative_t0_t1.html'>complex_step_derivative_T0_T1</a></li><li><a href='proc/complex_step_derivative_t1_t1.html'>complex_step_derivative_T1_T1</a></li><li><a href='interface/derivative.html'>derivative</a></li><li><a href='proc/finite_difference_backward_t0_t0.html'>finite_difference_backward_T0_T0</a></li><li><a href='proc/finite_difference_backward_t0_t1.html'>finite_difference_backward_T0_T1</a></li><li><a href='proc/finite_difference_backward_t1_t1.html'>finite_difference_backward_T1_T1</a></li><li><a href='proc/finite_difference_central_t0_t0.html'>finite_difference_central_T0_T0</a></li><li><a href='proc/finite_difference_central_t0_t1.html'>finite_difference_central_T0_T1</a></li><li><a href='proc/finite_difference_central_t1_t1.html'>finite_difference_central_T1_T1</a></li></ul>
+              <ul><li><a href='proc/complex_step_derivative_t0_t0.html'>complex_step_derivative_T0_T0</a></li><li><a href='proc/complex_step_derivative_t0_t1.html'>complex_step_derivative_T0_T1</a></li><li><a href='proc/complex_step_derivative_t1_t1.html'>complex_step_derivative_T1_T1</a></li><li><a href='interface/derivative.html'>derivative</a></li><li><a href='proc/f1.html'>f1</a></li><li><a href='proc/f1~2.html'>f1</a></li><li><a href='proc/f1~3.html'>f1</a></li><li><a href='proc/f2.html'>f2</a></li><li><a href='proc/f2~2.html'>f2</a></li><li><a href='proc/f2~3.html'>f2</a></li></ul>
             </div>
             <div>
               <ul>
@@ -191,40 +222,21 @@ command:</p>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDiff was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDiff
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-26T08:21:17.198756             </p>
+ on 2025-09-11T20:54:44.207370+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="./tipuesearch/tipuesearch_content.js"></script>
-          <script src="./tipuesearch/tipuesearch_set.js"></script>
-          <script src="./tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

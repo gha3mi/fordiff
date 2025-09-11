@@ -12,14 +12,29 @@
 
     <title>test4 &ndash; ForDiff</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -29,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForDiff <small>v0.1.1</small></a>
+          <a class="navbar-brand" href="../index.html">ForDiff </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -69,11 +84,11 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title="14.6% of total for programs.">15 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 8.1% of total for programs.">16 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -93,9 +108,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -112,11 +129,11 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/test4.html#variable-dfdx_f~3">dfdx_f</a>
-            <a class="list-group-item" href="../program/test4.html#variable-dfdx_b~3">dfdx_b</a>
-            <a class="list-group-item" href="../program/test4.html#variable-dfdx_c~3">dfdx_c</a>
-            <a class="list-group-item" href="../program/test4.html#variable-expected_dfdx~6">expected_dfdx</a>
-            <a class="list-group-item" href="../program/test4.html#variable-ut~6">ut</a>
+            <a class="list-group-item" href="../program/test4.html#variable-dfdx_b">dfdx_b</a>
+            <a class="list-group-item" href="../program/test4.html#variable-dfdx_c">dfdx_c</a>
+            <a class="list-group-item" href="../program/test4.html#variable-dfdx_f">dfdx_f</a>
+            <a class="list-group-item" href="../program/test4.html#variable-expected_dfdx~4">expected_dfdx</a>
+            <a class="list-group-item" href="../program/test4.html#variable-ut~4">ut</a>
         </div>
       </div>
     </div>
@@ -158,88 +175,95 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='../module/fordiff.html'>fordiff</a></li>
-                  <li class="list-inline-item"><a href='../module/mod_func4.html'>mod_func4</a></li>
+                  <li class="list-inline-item">kinds</li>
                   <li class="list-inline-item">forunittest</li>
+                  <li class="list-inline-item"><a href='../module/mod_func4.html'>mod_func4</a></li>
+                  <li class="list-inline-item"><a href='../module/fordiff.html'>fordiff</a></li>
               </ul>
             </li>
             <li class="list-group-item">
               <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: program~~test4~~UsesGraph Pages: 1 -->
-<svg id="programtest4UsesGraph" width="260pt" height="116pt"
- viewBox="0.00 0.00 260.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~test4~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<svg id="programtest4UsesGraph" width="259pt" height="154pt"
+ viewBox="0.00 0.00 259.00 154.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test4~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 150.27)">
 <title>program~~test4~~UsesGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 256,-112 256,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-150.27 254.77,-150.27 254.77,4 -4,4"/>
 <!-- program~test4 -->
 <g id="program~~test4~~UsesGraph_node1" class="node">
 <title>program~test4</title>
-<polygon fill="none" stroke="black" points="252,-66 198,-66 198,-42 252,-42 252,-66"/>
-<text text-anchor="middle" x="225" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">test4</text>
+<polygon fill="none" stroke="black" points="250.77,-86.27 196.77,-86.27 196.77,-62 250.77,-62 250.77,-86.27"/>
+<text xml:space="preserve" text-anchor="middle" x="223.77" y="-70.54" font-family="Helvetica,sans-Serif" font-size="10.50">test4</text>
 </g>
 <!-- forunittest -->
 <g id="program~~test4~~UsesGraph_node2" class="node">
 <title>forunittest</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="159.5,-108 92.5,-108 92.5,-84 159.5,-84 159.5,-108"/>
-<text text-anchor="middle" x="126" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forunittest</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="158.52,-146.27 92.25,-146.27 92.25,-122 158.52,-122 158.52,-146.27"/>
+<text xml:space="preserve" text-anchor="middle" x="125.38" y="-130.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forunittest</text>
 </g>
 <!-- program~test4&#45;&gt;forunittest -->
 <g id="program~~test4~~UsesGraph_edge1" class="edge">
 <title>program~test4&#45;&gt;forunittest</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M197.75,-65.37C187.51,-69.8 175.58,-74.97 164.46,-79.78"/>
-<polygon fill="#255000" stroke="#255000" points="162.75,-76.7 154.97,-83.89 165.54,-83.13 162.75,-76.7"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M202.8,-86.57C189.32,-94.96 171.29,-106.18 156.13,-115.62"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.59,-112.46 147.95,-120.71 158.29,-118.4 154.59,-112.46"/>
+</g>
+<!-- kinds -->
+<g id="program~~test4~~UsesGraph_node3" class="node">
+<title>kinds</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-66.27 0,-66.27 0,-42 54,-42 54,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">kinds</text>
+</g>
+<!-- program~test4&#45;&gt;kinds -->
+<g id="program~~test4~~UsesGraph_edge2" class="edge">
+<title>program~test4&#45;&gt;kinds</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M196.62,-76.94C169.69,-79.22 126.62,-81.17 90,-75.14 81.75,-73.78 73.12,-71.46 65.02,-68.86"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="66.39,-65.63 55.8,-65.68 64.11,-72.25 66.39,-65.63"/>
 </g>
 <!-- module~fordiff -->
-<g id="program~~test4~~UsesGraph_node3" class="node">
+<g id="program~~test4~~UsesGraph_node4" class="node">
 <title>module~fordiff</title>
-<g id="a_program~~test4~~UsesGraph_node3"><a xlink:href="../module/fordiff.html" xlink:title="fordiff">
-<polygon fill="#337ab7" stroke="#337ab7" points="153,-66 99,-66 99,-42 153,-42 153,-66"/>
-<text text-anchor="middle" x="126" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff</text>
+<g id="a_program~~test4~~UsesGraph_node4"><a xlink:href="../module/fordiff.html" xlink:title="fordiff">
+<polygon fill="#337ab7" stroke="#337ab7" points="152.38,-66.27 98.38,-66.27 98.38,-42 152.38,-42 152.38,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="125.38" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff</text>
 </a>
 </g>
 </g>
 <!-- program~test4&#45;&gt;module~fordiff -->
-<g id="program~~test4~~UsesGraph_edge2" class="edge">
+<g id="program~~test4~~UsesGraph_edge3" class="edge">
 <title>program~test4&#45;&gt;module~fordiff</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M197.75,-54C187.18,-54 174.82,-54 163.4,-54"/>
-<polygon fill="#255000" stroke="#255000" points="163.27,-50.5 153.27,-54 163.27,-57.5 163.27,-50.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M196.43,-68.67C186.34,-66.58 174.62,-64.14 163.69,-61.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="164.68,-58.51 154.17,-59.9 163.25,-65.36 164.68,-58.51"/>
 </g>
 <!-- module~mod_func4 -->
-<g id="program~~test4~~UsesGraph_node4" class="node">
+<g id="program~~test4~~UsesGraph_node5" class="node">
 <title>module~mod_func4</title>
-<g id="a_program~~test4~~UsesGraph_node4"><a xlink:href="../module/mod_func4.html" xlink:title="mod_func4">
-<polygon fill="#337ab7" stroke="#337ab7" points="162,-24 90,-24 90,0 162,0 162,-24"/>
-<text text-anchor="middle" x="126" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mod_func4</text>
+<g id="a_program~~test4~~UsesGraph_node5"><a xlink:href="../module/mod_func4.html" xlink:title="mod_func4">
+<polygon fill="#337ab7" stroke="#337ab7" points="160.77,-24.27 90,-24.27 90,0 160.77,0 160.77,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="125.38" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mod_func4</text>
 </a>
 </g>
 </g>
 <!-- program~test4&#45;&gt;module~mod_func4 -->
-<g id="program~~test4~~UsesGraph_edge3" class="edge">
+<g id="program~~test4~~UsesGraph_edge4" class="edge">
 <title>program~test4&#45;&gt;module~mod_func4</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M197.75,-42.63C187.51,-38.2 175.58,-33.03 164.46,-28.22"/>
-<polygon fill="#255000" stroke="#255000" points="165.54,-24.87 154.97,-24.11 162.75,-31.3 165.54,-24.87"/>
-</g>
-<!-- kinds -->
-<g id="program~~test4~~UsesGraph_node5" class="node">
-<title>kinds</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
-<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">kinds</text>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M204.16,-61.58C191.91,-53.37 175.47,-42.48 160.77,-33.13 159.4,-32.27 158.01,-31.38 156.59,-30.5"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="158.82,-27.76 148.47,-25.47 155.13,-33.71 158.82,-27.76"/>
 </g>
 <!-- module~fordiff&#45;&gt;kinds -->
-<g id="program~~test4~~UsesGraph_edge4" class="edge">
+<g id="program~~test4~~UsesGraph_edge5" class="edge">
 <title>module~fordiff&#45;&gt;kinds</title>
-<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M98.75,-48.32C88.08,-46.01 75.56,-43.3 64.05,-40.81"/>
-<polygon fill="#025500" stroke="#025500" points="64.78,-37.38 54.27,-38.69 63.3,-44.22 64.78,-37.38"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M98.05,-54.13C88.06,-54.13 76.48,-54.13 65.65,-54.13"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="65.82,-50.64 55.82,-54.14 65.82,-57.64 65.82,-50.64"/>
 </g>
 <!-- module~mod_func4&#45;&gt;kinds -->
-<g id="program~~test4~~UsesGraph_edge5" class="edge">
+<g id="program~~test4~~UsesGraph_edge6" class="edge">
 <title>module~mod_func4&#45;&gt;kinds</title>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M89.98,-19.58C81.57,-21.4 72.57,-23.35 64.11,-25.18"/>
-<polygon fill="#002505" stroke="#002505" points="63.17,-21.8 54.14,-27.34 64.65,-28.65 63.17,-21.8"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M95.47,-24.74C85.75,-28.97 74.79,-33.75 64.57,-38.2"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="63.43,-34.88 55.66,-42.08 66.22,-41.3 63.43,-34.88"/>
 </g>
 </g>
 </svg>
@@ -258,49 +282,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="518pt" height="32pt"
- viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
 <!-- Module -->
 <g id="node1" class="node">
 <title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
 </g>
 <!-- Submodule -->
 <g id="node2" class="node">
 <title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
-<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
 </g>
 <!-- Subroutine -->
 <g id="node3" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
-<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node4" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
-<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Program -->
 <g id="node5" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
-<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node6" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
-<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -330,279 +354,275 @@ large graphs.</div>
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: program~~test4~~CallsGraph Pages: 1 -->
-<svg id="programtest4CallsGraph" width="641pt" height="360pt"
- viewBox="0.00 0.00 641.00 360.01" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~test4~~CallsGraph" class="graph" transform="scale(1.14 1.14) rotate(0) translate(4 406)">
+<svg id="programtest4CallsGraph" width="607pt" height="410pt"
+ viewBox="0.00 0.00 607.00 410.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test4~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 406.27)">
 <title>program~~test4~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-406 726,-406 726,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-406.27 603.31,-406.27 603.31,4 -4,4"/>
 <!-- program~test4 -->
 <g id="program~~test4~~CallsGraph_node1" class="node">
 <title>program~test4</title>
-<polygon fill="none" stroke="black" points="54,-318 0,-318 0,-294 54,-294 54,-318"/>
-<text text-anchor="middle" x="27" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50">test4</text>
+<polygon fill="none" stroke="black" points="54,-318.27 0,-318.27 0,-294 54,-294 54,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50">test4</text>
 </g>
 <!-- check -->
 <g id="program~~test4~~CallsGraph_node2" class="node">
 <title>check</title>
-<polygon fill="#777777" stroke="#777777" points="170,-339 116,-339 116,-315 170,-315 170,-339"/>
-<text text-anchor="middle" x="143" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
+<polygon fill="#777777" stroke="#777777" points="149.38,-339.27 95.38,-339.27 95.38,-315 149.38,-315 149.38,-339.27"/>
+<text xml:space="preserve" text-anchor="middle" x="122.38" y="-323.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
 </g>
 <!-- program~test4&#45;&gt;check -->
 <g id="program~~test4~~CallsGraph_edge1" class="edge">
 <title>program~test4&#45;&gt;check</title>
-<path fill="none" stroke="#255000" d="M54.15,-310.82C69.51,-313.65 89.13,-317.26 105.93,-320.36"/>
-<polygon fill="#255000" stroke="#255000" points="105.5,-323.83 115.97,-322.2 106.77,-316.95 105.5,-323.83"/>
+<path fill="none" stroke="#ff0000" d="M54.01,-311.98C63.35,-314.08 74.06,-316.49 84.16,-318.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="83.19,-322.13 93.71,-320.91 84.72,-315.3 83.19,-322.13"/>
 </g>
 <!-- interface~derivative -->
 <g id="program~~test4~~CallsGraph_node3" class="node">
 <title>interface~derivative</title>
-<g id="a_program~~test4~~CallsGraph_node3"><a xlink:href="../interface/derivative.html" xlink:title="fordiff::derivative">
-<polygon fill="#a7506f" stroke="#a7506f" points="196,-297 90,-297 90,-273 196,-273 196,-297"/>
-<text text-anchor="middle" x="143" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::derivative</text>
+<g id="a_program~~test4~~CallsGraph_node3"><a xlink:href="../interface/derivative.html" xlink:title="derivative">
+<polygon fill="#a7506f" stroke="#a7506f" points="154.77,-297.27 90,-297.27 90,-273 154.77,-273 154.77,-297.27"/>
+<text xml:space="preserve" text-anchor="middle" x="122.38" y="-281.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">derivative</text>
 </a>
 </g>
 </g>
 <!-- program~test4&#45;&gt;interface~derivative -->
 <g id="program~~test4~~CallsGraph_edge2" class="edge">
 <title>program~test4&#45;&gt;interface~derivative</title>
-<path fill="none" stroke="#255000" d="M54.15,-301.18C61.97,-299.74 70.9,-298.1 80,-296.42"/>
-<polygon fill="#255000" stroke="#255000" points="80.7,-299.85 89.9,-294.6 79.43,-292.97 80.7,-299.85"/>
+<path fill="none" stroke="#ff0000" d="M54.01,-300.29C61.58,-298.58 70.06,-296.68 78.38,-294.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="79.06,-298.24 88.05,-292.63 77.53,-291.41 79.06,-298.24"/>
 </g>
 <!-- proc~complex_step_derivative_t0_t0 -->
 <g id="program~~test4~~CallsGraph_node4" class="node">
 <title>proc~complex_step_derivative_t0_t0</title>
-<g id="a_program~~test4~~CallsGraph_node4"><a xlink:href="../proc/complex_step_derivative_t0_t0.html" xlink:title="fordiff::complex_step_derivative_T0_T0">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="453,-402 232,-402 232,-378 453,-378 453,-402"/>
-<text text-anchor="middle" x="342.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::complex_step_derivative_T0_T0</text>
+<g id="a_program~~test4~~CallsGraph_node4"><a xlink:href="../proc/complex_step_derivative_t0_t0.html" xlink:title="complex_step_derivative_T0_T0">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="371.04,-402.27 190.77,-402.27 190.77,-378 371.04,-378 371.04,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">complex_step_derivative_T0_T0</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~complex_step_derivative_t0_t0 -->
 <g id="program~~test4~~CallsGraph_edge3" class="edge">
 <title>interface~derivative&#45;&gt;proc~complex_step_derivative_t0_t0</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M182.64,-297.13C187.44,-299.61 192.04,-302.54 196,-306 220.29,-327.21 205.76,-350.25 232,-369 234.14,-370.53 236.35,-371.95 238.64,-373.28"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="237.24,-376.5 247.74,-377.94 240.43,-370.27 237.24,-376.5"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M145.04,-297.67C148.52,-300.22 151.91,-303.07 154.77,-306.13 176.76,-329.73 164.93,-349.84 190.77,-369.13 192.3,-370.28 193.89,-371.36 195.52,-372.39"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="193.48,-375.27 203.95,-376.93 196.81,-369.11 193.48,-375.27"/>
 </g>
 <!-- proc~complex_step_derivative_t0_t1 -->
 <g id="program~~test4~~CallsGraph_node5" class="node">
 <title>proc~complex_step_derivative_t0_t1</title>
-<g id="a_program~~test4~~CallsGraph_node5"><a xlink:href="../proc/complex_step_derivative_t0_t1.html" xlink:title="fordiff::complex_step_derivative_T0_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="453,-360 232,-360 232,-336 453,-336 453,-360"/>
-<text text-anchor="middle" x="342.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::complex_step_derivative_T0_T1</text>
+<g id="a_program~~test4~~CallsGraph_node5"><a xlink:href="../proc/complex_step_derivative_t0_t1.html" xlink:title="complex_step_derivative_T0_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="371.04,-360.27 190.77,-360.27 190.77,-336 371.04,-336 371.04,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">complex_step_derivative_T0_T1</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~complex_step_derivative_t0_t1 -->
 <g id="program~~test4~~CallsGraph_edge4" class="edge">
 <title>interface~derivative&#45;&gt;proc~complex_step_derivative_t0_t1</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M175.94,-297.05C182.65,-299.82 189.62,-302.87 196,-306 212.63,-314.16 214.66,-320.5 232,-327 238.33,-329.37 244.98,-331.49 251.73,-333.38"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="251.11,-336.84 261.67,-335.98 252.88,-330.06 251.11,-336.84"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M141.97,-297.67C158.28,-308.5 180.91,-323.03 190.77,-327.13 195.15,-328.96 199.71,-330.64 204.36,-332.19"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="203.29,-335.52 213.88,-335.12 205.35,-328.83 203.29,-335.52"/>
 </g>
 <!-- proc~complex_step_derivative_t1_t1 -->
 <g id="program~~test4~~CallsGraph_node6" class="node">
 <title>proc~complex_step_derivative_t1_t1</title>
-<g id="a_program~~test4~~CallsGraph_node6"><a xlink:href="../proc/complex_step_derivative_t1_t1.html" xlink:title="fordiff::complex_step_derivative_T1_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="453,-318 232,-318 232,-294 453,-294 453,-318"/>
-<text text-anchor="middle" x="342.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::complex_step_derivative_T1_T1</text>
+<g id="a_program~~test4~~CallsGraph_node6"><a xlink:href="../proc/complex_step_derivative_t1_t1.html" xlink:title="complex_step_derivative_T1_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="371.04,-318.27 190.77,-318.27 190.77,-294 371.04,-294 371.04,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">complex_step_derivative_T1_T1</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~complex_step_derivative_t1_t1 -->
 <g id="program~~test4~~CallsGraph_edge5" class="edge">
 <title>interface~derivative&#45;&gt;proc~complex_step_derivative_t1_t1</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M196.15,-290.54C204.2,-291.4 212.79,-292.31 221.62,-293.25"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="221.36,-296.75 231.67,-294.32 222.1,-289.78 221.36,-296.75"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M155.06,-289.38C162.33,-290.36 170.44,-291.45 178.94,-292.59"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="178.42,-296.05 188.8,-293.91 179.35,-289.11 178.42,-296.05"/>
 </g>
 <!-- proc~finite_difference_t0_t0 -->
 <g id="program~~test4~~CallsGraph_node7" class="node">
 <title>proc~finite_difference_t0_t0</title>
-<g id="a_program~~test4~~CallsGraph_node7"><a xlink:href="../proc/finite_difference_t0_t0.html" xlink:title="fordiff::finite_difference_T0_T0">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="430.5,-276 254.5,-276 254.5,-252 430.5,-252 430.5,-276"/>
-<text text-anchor="middle" x="342.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_T0_T0</text>
+<g id="a_program~~test4~~CallsGraph_node7"><a xlink:href="../proc/finite_difference_t0_t0.html" xlink:title="finite_difference_T0_T0">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="348.54,-276.27 213.27,-276.27 213.27,-252 348.54,-252 348.54,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_T0_T0</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~finite_difference_t0_t0 -->
 <g id="program~~test4~~CallsGraph_edge6" class="edge">
 <title>interface~derivative&#45;&gt;proc~finite_difference_t0_t0</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M196.15,-279.46C210.91,-277.89 227.48,-276.12 244,-274.37"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="244.69,-277.81 254.27,-273.28 243.95,-270.85 244.69,-277.81"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M155.06,-280.89C168.63,-279.06 185.14,-276.85 201.65,-274.63"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="202.1,-278.11 211.55,-273.31 201.17,-271.17 202.1,-278.11"/>
 </g>
 <!-- proc~finite_difference_t0_t1 -->
 <g id="program~~test4~~CallsGraph_node8" class="node">
 <title>proc~finite_difference_t0_t1</title>
-<g id="a_program~~test4~~CallsGraph_node8"><a xlink:href="../proc/finite_difference_t0_t1.html" xlink:title="fordiff::finite_difference_T0_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="430.5,-213 254.5,-213 254.5,-189 430.5,-189 430.5,-213"/>
-<text text-anchor="middle" x="342.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_T0_T1</text>
+<g id="a_program~~test4~~CallsGraph_node8"><a xlink:href="../proc/finite_difference_t0_t1.html" xlink:title="finite_difference_T0_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="348.54,-213.27 213.27,-213.27 213.27,-189 348.54,-189 348.54,-213.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-197.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_T0_T1</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~finite_difference_t0_t1 -->
 <g id="program~~test4~~CallsGraph_edge7" class="edge">
 <title>interface~derivative&#45;&gt;proc~finite_difference_t0_t1</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M168.04,-272.89C185.6,-264.21 210.07,-252.42 232,-243 253.7,-233.68 278.22,-224.18 298.55,-216.58"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="300.01,-219.77 308.16,-213.01 297.57,-213.21 300.01,-219.77"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M142.2,-272.58C155.52,-263.9 173.94,-252.3 190.77,-243.13 206.76,-234.42 224.86,-225.7 240.55,-218.47"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="241.95,-221.68 249.6,-214.36 239.05,-215.31 241.95,-221.68"/>
 </g>
 <!-- proc~finite_difference_t1_t1 -->
 <g id="program~~test4~~CallsGraph_node9" class="node">
 <title>proc~finite_difference_t1_t1</title>
-<g id="a_program~~test4~~CallsGraph_node9"><a xlink:href="../proc/finite_difference_t1_t1.html" xlink:title="fordiff::finite_difference_T1_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="430.5,-87 254.5,-87 254.5,-63 430.5,-63 430.5,-87"/>
-<text text-anchor="middle" x="342.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_T1_T1</text>
+<g id="a_program~~test4~~CallsGraph_node9"><a xlink:href="../proc/finite_difference_t1_t1.html" xlink:title="finite_difference_T1_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="348.54,-87.27 213.27,-87.27 213.27,-63 348.54,-63 348.54,-87.27"/>
+<text xml:space="preserve" text-anchor="middle" x="280.91" y="-71.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_T1_T1</text>
 </a>
 </g>
 </g>
 <!-- interface~derivative&#45;&gt;proc~finite_difference_t1_t1 -->
 <g id="program~~test4~~CallsGraph_edge8" class="edge">
 <title>interface~derivative&#45;&gt;proc~finite_difference_t1_t1</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M153.36,-272.99C169.02,-253.1 201.78,-212.31 232,-180 261.32,-148.65 297.69,-114.66 320.25,-94.1"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="322.84,-96.47 327.9,-87.16 318.14,-91.28 322.84,-96.47"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M130.56,-272.82C142.36,-252.83 166.93,-212.34 190.77,-180.13 213.32,-149.66 242.13,-116.66 260.79,-95.95"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="263.21,-98.49 267.34,-88.74 258.03,-93.79 263.21,-98.49"/>
 </g>
 <!-- proc~finite_difference_backward_t0_t0 -->
 <g id="program~~test4~~CallsGraph_node10" class="node">
 <title>proc~finite_difference_backward_t0_t0</title>
-<g id="a_program~~test4~~CallsGraph_node10"><a xlink:href="../proc/finite_difference_backward_t0_t0.html" xlink:title="fordiff::finite_difference_backward_T0_T0">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="722,-360 489,-360 489,-336 722,-336 722,-360"/>
-<text text-anchor="middle" x="605.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_backward_T0_T0</text>
+<g id="a_program~~test4~~CallsGraph_node10"><a xlink:href="../proc/finite_difference_backward_t0_t0.html" xlink:title="finite_difference_backward_T0_T0">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="599.31,-360.27 407.04,-360.27 407.04,-336 599.31,-336 599.31,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_backward_T0_T0</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_backward_t0_t0 -->
 <g id="program~~test4~~CallsGraph_edge9" class="edge">
 <title>proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_backward_t0_t0</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M430.67,-275.03C438.48,-277.69 446.05,-280.97 453,-285 474.26,-297.34 467.68,-314.76 489,-327 492.24,-328.86 495.61,-330.56 499.07,-332.12"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="497.84,-335.39 508.42,-335.9 500.47,-328.91 497.84,-335.39"/>
+<path fill="none" stroke="#00ffff" d="M348.98,-275.02C356.71,-277.68 364.25,-281 371.04,-285.13 392.04,-297.92 385.95,-314.5 407.04,-327.13 409.37,-328.53 411.77,-329.83 414.24,-331.04"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="412.74,-334.21 423.31,-334.97 415.53,-327.79 412.74,-334.21"/>
 </g>
 <!-- proc~finite_difference_central_t0_t0 -->
 <g id="program~~test4~~CallsGraph_node13" class="node">
 <title>proc~finite_difference_central_t0_t0</title>
-<g id="a_program~~test4~~CallsGraph_node13"><a xlink:href="../proc/finite_difference_central_t0_t0.html" xlink:title="fordiff::finite_difference_central_T0_T0">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="715,-318 496,-318 496,-294 715,-294 715,-318"/>
-<text text-anchor="middle" x="605.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_central_T0_T0</text>
+<g id="a_program~~test4~~CallsGraph_node13"><a xlink:href="../proc/finite_difference_central_t0_t0.html" xlink:title="finite_difference_central_T0_T0">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="592.19,-318.27 414.17,-318.27 414.17,-294 592.19,-294 592.19,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_central_T0_T0</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_central_t0_t0 -->
 <g id="program~~test4~~CallsGraph_edge10" class="edge">
 <title>proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_central_t0_t0</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M418.29,-276.04C449.96,-281.13 487.02,-287.1 519.71,-292.35"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="519.27,-295.83 529.7,-293.96 520.38,-288.92 519.27,-295.83"/>
+<path fill="none" stroke="#00ffff" d="M347.99,-276.74C372.28,-281.37 399.98,-286.65 425.15,-291.45"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="424.17,-294.82 434.65,-293.26 425.48,-287.95 424.17,-294.82"/>
 </g>
 <!-- proc~finite_difference_forward_t0_t0 -->
 <g id="program~~test4~~CallsGraph_node16" class="node">
 <title>proc~finite_difference_forward_t0_t0</title>
-<g id="a_program~~test4~~CallsGraph_node16"><a xlink:href="../proc/finite_difference_forward_t0_t0.html" xlink:title="fordiff::finite_difference_forward_T0_T0">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="717,-276 494,-276 494,-252 717,-252 717,-276"/>
-<text text-anchor="middle" x="605.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_forward_T0_T0</text>
+<g id="a_program~~test4~~CallsGraph_node16"><a xlink:href="../proc/finite_difference_forward_t0_t0.html" xlink:title="finite_difference_forward_T0_T0">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="594.06,-276.27 412.29,-276.27 412.29,-252 594.06,-252 594.06,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_forward_T0_T0</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_forward_t0_t0 -->
 <g id="program~~test4~~CallsGraph_edge11" class="edge">
 <title>proc~finite_difference_t0_t0&#45;&gt;proc~finite_difference_forward_t0_t0</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M430.77,-264C447.62,-264 465.55,-264 483.25,-264"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="483.64,-267.5 493.64,-264 483.64,-260.5 483.64,-267.5"/>
+<path fill="none" stroke="#00ffff" d="M348.89,-264.13C365.19,-264.13 382.99,-264.13 400.5,-264.13"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="400.44,-267.64 410.44,-264.14 400.44,-260.64 400.44,-267.64"/>
 </g>
 <!-- proc~finite_difference_backward_t0_t1 -->
 <g id="program~~test4~~CallsGraph_node11" class="node">
 <title>proc~finite_difference_backward_t0_t1</title>
-<g id="a_program~~test4~~CallsGraph_node11"><a xlink:href="../proc/finite_difference_backward_t0_t1.html" xlink:title="fordiff::finite_difference_backward_T0_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="722,-234 489,-234 489,-210 722,-210 722,-234"/>
-<text text-anchor="middle" x="605.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_backward_T0_T1</text>
+<g id="a_program~~test4~~CallsGraph_node11"><a xlink:href="../proc/finite_difference_backward_t0_t1.html" xlink:title="finite_difference_backward_T0_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="599.31,-234.27 407.04,-234.27 407.04,-210 599.31,-210 599.31,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_backward_T0_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_backward_t0_t1 -->
 <g id="program~~test4~~CallsGraph_edge12" class="edge">
 <title>proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_backward_t0_t1</title>
-<path fill="none" stroke="#002505" d="M430.77,-208.02C446.24,-209.27 462.61,-210.58 478.89,-211.89"/>
-<polygon fill="#002505" stroke="#002505" points="478.75,-215.39 489,-212.71 479.31,-208.42 478.75,-215.39"/>
+<path fill="none" stroke="#0000ff" d="M348.89,-207.52C363.7,-208.93 379.74,-210.46 395.69,-211.98"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="394.9,-215.42 405.19,-212.89 395.56,-208.45 394.9,-215.42"/>
 </g>
 <!-- proc~finite_difference_central_t0_t1 -->
 <g id="program~~test4~~CallsGraph_node14" class="node">
 <title>proc~finite_difference_central_t0_t1</title>
-<g id="a_program~~test4~~CallsGraph_node14"><a xlink:href="../proc/finite_difference_central_t0_t1.html" xlink:title="fordiff::finite_difference_central_T0_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="715,-192 496,-192 496,-168 715,-168 715,-192"/>
-<text text-anchor="middle" x="605.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_central_T0_T1</text>
+<g id="a_program~~test4~~CallsGraph_node14"><a xlink:href="../proc/finite_difference_central_t0_t1.html" xlink:title="finite_difference_central_T0_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="592.19,-192.27 414.17,-192.27 414.17,-168 592.19,-168 592.19,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_central_T0_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_central_t0_t1 -->
 <g id="program~~test4~~CallsGraph_edge13" class="edge">
 <title>proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_central_t0_t1</title>
-<path fill="none" stroke="#002505" d="M430.77,-193.98C448.48,-192.55 467.39,-191.03 485.98,-189.54"/>
-<polygon fill="#002505" stroke="#002505" points="486.27,-193.02 495.96,-188.73 485.71,-186.05 486.27,-193.02"/>
+<path fill="none" stroke="#0000ff" d="M348.89,-194.75C365.87,-193.13 384.48,-191.36 402.69,-189.62"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="402.83,-193.12 412.46,-188.69 402.17,-186.15 402.83,-193.12"/>
 </g>
 <!-- proc~finite_difference_forward_t0_t1 -->
 <g id="program~~test4~~CallsGraph_node17" class="node">
 <title>proc~finite_difference_forward_t0_t1</title>
-<g id="a_program~~test4~~CallsGraph_node17"><a xlink:href="../proc/finite_difference_forward_t0_t1.html" xlink:title="fordiff::finite_difference_forward_T0_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="717,-150 494,-150 494,-126 717,-126 717,-150"/>
-<text text-anchor="middle" x="605.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_forward_T0_T1</text>
+<g id="a_program~~test4~~CallsGraph_node17"><a xlink:href="../proc/finite_difference_forward_t0_t1.html" xlink:title="finite_difference_forward_T0_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="594.06,-150.27 412.29,-150.27 412.29,-126 594.06,-126 594.06,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_forward_T0_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_forward_t0_t1 -->
 <g id="program~~test4~~CallsGraph_edge14" class="edge">
 <title>proc~finite_difference_t0_t1&#45;&gt;proc~finite_difference_forward_t0_t1</title>
-<path fill="none" stroke="#002505" d="M381.21,-188.98C410.42,-179.94 452.01,-167.68 489,-159 499.56,-156.52 510.72,-154.17 521.77,-151.99"/>
-<polygon fill="#002505" stroke="#002505" points="522.72,-155.37 531.87,-150.05 521.39,-148.5 522.72,-155.37"/>
+<path fill="none" stroke="#0000ff" d="M316.12,-188.55C341.11,-179.63 375.9,-167.77 407.04,-159.13 414.27,-157.13 421.85,-155.19 429.44,-153.35"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="430.12,-156.79 439.05,-151.08 428.52,-149.97 430.12,-156.79"/>
 </g>
 <!-- proc~finite_difference_backward_t1_t1 -->
 <g id="program~~test4~~CallsGraph_node12" class="node">
 <title>proc~finite_difference_backward_t1_t1</title>
-<g id="a_program~~test4~~CallsGraph_node12"><a xlink:href="../proc/finite_difference_backward_t1_t1.html" xlink:title="fordiff::finite_difference_backward_T1_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="722,-108 489,-108 489,-84 722,-84 722,-108"/>
-<text text-anchor="middle" x="605.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_backward_T1_T1</text>
+<g id="a_program~~test4~~CallsGraph_node12"><a xlink:href="../proc/finite_difference_backward_t1_t1.html" xlink:title="finite_difference_backward_T1_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="599.31,-108.27 407.04,-108.27 407.04,-84 599.31,-84 599.31,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_backward_T1_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_backward_t1_t1 -->
 <g id="program~~test4~~CallsGraph_edge15" class="edge">
 <title>proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_backward_t1_t1</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M430.77,-82.02C446.24,-83.27 462.61,-84.58 478.89,-85.89"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="478.75,-89.39 489,-86.71 479.31,-82.42 478.75,-89.39"/>
+<path fill="none" stroke="#ff00ff" d="M348.89,-81.52C363.7,-82.93 379.74,-84.46 395.69,-85.98"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="394.9,-89.42 405.19,-86.89 395.56,-82.45 394.9,-89.42"/>
 </g>
 <!-- proc~finite_difference_central_t1_t1 -->
 <g id="program~~test4~~CallsGraph_node15" class="node">
 <title>proc~finite_difference_central_t1_t1</title>
-<g id="a_program~~test4~~CallsGraph_node15"><a xlink:href="../proc/finite_difference_central_t1_t1.html" xlink:title="fordiff::finite_difference_central_T1_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="715,-66 496,-66 496,-42 715,-42 715,-66"/>
-<text text-anchor="middle" x="605.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_central_T1_T1</text>
+<g id="a_program~~test4~~CallsGraph_node15"><a xlink:href="../proc/finite_difference_central_t1_t1.html" xlink:title="finite_difference_central_T1_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="592.19,-66.27 414.17,-66.27 414.17,-42 592.19,-42 592.19,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_central_T1_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_central_t1_t1 -->
 <g id="program~~test4~~CallsGraph_edge16" class="edge">
 <title>proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_central_t1_t1</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M430.77,-67.98C448.48,-66.55 467.39,-65.03 485.98,-63.54"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="486.27,-67.02 495.96,-62.73 485.71,-60.05 486.27,-67.02"/>
+<path fill="none" stroke="#ff00ff" d="M348.89,-68.75C365.87,-67.13 384.48,-65.36 402.69,-63.62"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="402.83,-67.12 412.46,-62.69 402.17,-60.15 402.83,-67.12"/>
 </g>
 <!-- proc~finite_difference_forward_t1_t1 -->
 <g id="program~~test4~~CallsGraph_node18" class="node">
 <title>proc~finite_difference_forward_t1_t1</title>
-<g id="a_program~~test4~~CallsGraph_node18"><a xlink:href="../proc/finite_difference_forward_t1_t1.html" xlink:title="fordiff::finite_difference_forward_T1_T1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="717,-24 494,-24 494,0 717,0 717,-24"/>
-<text text-anchor="middle" x="605.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff::finite_difference_forward_T1_T1</text>
+<g id="a_program~~test4~~CallsGraph_node18"><a xlink:href="../proc/finite_difference_forward_t1_t1.html" xlink:title="finite_difference_forward_T1_T1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="594.06,-24.27 412.29,-24.27 412.29,0 594.06,0 594.06,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="503.18" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finite_difference_forward_T1_T1</text>
 </a>
 </g>
 </g>
 <!-- proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_forward_t1_t1 -->
 <g id="program~~test4~~CallsGraph_edge17" class="edge">
 <title>proc~finite_difference_t1_t1&#45;&gt;proc~finite_difference_forward_t1_t1</title>
-<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M381.21,-62.98C410.42,-53.94 452.01,-41.68 489,-33 499.56,-30.52 510.72,-28.17 521.77,-25.99"/>
-<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="522.72,-29.37 531.87,-24.05 521.39,-22.5 522.72,-29.37"/>
+<path fill="none" stroke="#ff00ff" d="M316.12,-62.55C341.11,-53.63 375.9,-41.77 407.04,-33.13 414.27,-31.13 421.85,-29.19 429.44,-27.35"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="430.12,-30.79 439.05,-25.08 428.52,-23.97 430.12,-30.79"/>
 </g>
 </g>
 </svg>
-</div>                <script>
-                  var panprogramtest4CallsGraph = svgPanZoom('#programtest4CallsGraph',
-                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
-                  );
-                </script>          <div>
+</div>          <div>
             <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
           </div>
           <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
@@ -617,55 +637,55 @@ large graphs.</div>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
 </g>
 <!-- Function -->
 <g id="node2" class="node">
 <title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
 </g>
 <!-- Interface -->
 <g id="node3" class="node">
 <title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
 <!-- Type Bound Procedure -->
 <g id="node4" class="node">
 <title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
 </g>
 <!-- Unknown Procedure Type -->
 <g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
 <g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
 <g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -699,23 +719,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-dfdx_f~3"></span>
-              real(kind=rk)
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>dfdx_f</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-dfdx_b~3"></span>
+              <span class="anchor" id="variable-dfdx_b"></span>
               real(kind=rk)
             </td>
             <td>
@@ -731,7 +735,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dfdx_c~3"></span>
+              <span class="anchor" id="variable-dfdx_c"></span>
               real(kind=rk)
             </td>
             <td>
@@ -747,7 +751,23 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected_dfdx~6"></span>
+              <span class="anchor" id="variable-dfdx_f"></span>
+              real(kind=rk)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dfdx_f</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_dfdx~4"></span>
               real(kind=rk)
             </td>
             <td>
@@ -763,7 +783,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ut~6"></span>
+              <span class="anchor" id="variable-ut~4"></span>
               type(unit_test)
             </td>
             <td>
@@ -793,35 +813,36 @@ large graphs.</div>
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">test4</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">test4</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">use </span><span class="n">fordiff</span>
-<span class="w">   </span><span class="k">use </span><span class="n">mod_func4</span>
-<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span>
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">fordiff</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">derivative</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">mod_func4</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">func4</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">unit_test</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">implicit none</span>
 
-<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx_f</span><span class="p">,</span><span class="w"> </span><span class="n">dfdx_b</span><span class="p">,</span><span class="w"> </span><span class="n">dfdx_c</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span>
-<span class="w">   </span><span class="k">type</span><span class="p">(</span><span class="n">unit_test</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ut</span>
+<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dfdx_f</span><span class="p">,</span><span class="w"> </span><span class="n">dfdx_b</span><span class="p">,</span><span class="w"> </span><span class="n">dfdx_c</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="w"></span>
+<span class="w">   </span><span class="k">type</span><span class="p">(</span><span class="n">unit_test</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ut</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! compute derivative using forward mode</span>
-<span class="w">   </span><span class="n">dfdx_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;forward&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dfdx_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;forward&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span>
 <span class="w">   </span><span class="c">! compute derivative using backward mode</span>
-<span class="w">   </span><span class="n">dfdx_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;backward&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dfdx_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;backward&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! compute derivative using central mode</span>
-<span class="w">   </span><span class="n">dfdx_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;central&#39;</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dfdx_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">func4</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;central&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! compute derivative analytically</span>
-<span class="w">   </span><span class="n">expected_dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_rk</span>
+<span class="w">   </span><span class="n">expected_dfdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! check if derivative is correct</span>
-<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_f</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.1&#39;</span><span class="w"> </span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_b</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.2&#39;</span><span class="w"> </span><span class="p">)</span>
-<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_c</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.3&#39;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_f</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.1&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_b</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.2&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_c</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test4.3&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 
-<span class="k">end program </span><span class="n">test4</span>
+<span class="k">end program </span><span class="n">test4</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -834,40 +855,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDiff was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDiff
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-26T08:21:17.198756             </p>
+ on 2025-09-11T20:54:44.207370+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>
