@@ -3,8 +3,8 @@ program demo3
    ! This program demonstrates how to compute the derivative of a vector-valued function w.r.t. a vector of variables
    ! using complex-step and finite-difference methods.
 
-   use kinds
-   use fordiff
+   use kinds, only: rk
+   use fordiff, only: derivative
 
    implicit none
 

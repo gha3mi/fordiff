@@ -1,7 +1,7 @@
 !===============================================================================
 module mod_func5
 
-   use kinds
+   use kinds, only: rk
    implicit none
 
 contains
@@ -22,9 +22,10 @@ end module mod_func5
 !===============================================================================
 program test5
 
-   use fordiff
-   use mod_func5
-   use forunittest
+   use kinds, only: rk
+   use fordiff, only: derivative
+   use mod_func5, only: func5
+   use forunittest, only: unit_test
 
    implicit none
 
