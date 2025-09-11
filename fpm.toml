@@ -1,10 +1,11 @@
-name       = "fordiff"
-version    = "VERSION"
-author     = "Seyed Ali Ghasemi"
-maintainer = "info@gha3mi.com"
-homepage   = "https://github.com/gha3mi/fordiff"
-copyright  = "Copyright (c) 2023-2025, Seyed Ali Ghasemi"
-license    = "BSD-3"
+name        = "fordiff"
+description = "A Fortran library for numerical differentiation"
+version     = "VERSION"
+author      = "Seyed Ali Ghasemi"
+maintainer  = "info@gha3mi.com"
+homepage    = "https://github.com/gha3mi/fordiff"
+copyright   = "Copyright (c) 2023-2025, Seyed Ali Ghasemi"
+license     = "BSD-3"
 
 [build]
 auto-executables = false
