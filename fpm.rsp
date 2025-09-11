@@ -1,23 +1,113 @@
-@test-gfortran
+# CI configurations for fpm tests
+## ubuntu
+@ubuntu-latest_gfortran_debug
 options test target --all
-options --profile release
 options --compiler gfortran
-options --flag "-O3 -march=native"
+options --profile debug
 
-@test-ifort
+@ubuntu-latest_gfortran_release
 options test target --all
+options --compiler gfortran
 options --profile release
-options --compiler ifort
-options --flag "-O3 -xHost -mtune=native"
 
-@test-ifx
+@ubuntu-latest_ifx_debug
 options test target --all
-options --profile release
 options --compiler ifx
-options --flag "-O3 -xHost -mtune=native"
+options --profile debug
 
-@test-nvfortran
+@ubuntu-latest_ifx_release
 options test target --all
+options --compiler ifx
 options --profile release
+
+@ubuntu-latest_nvfortran_debug
+options test target --all
 options --compiler nvfortran
-options --flag "-O4 -mtune=native"
+options --profile debug
+
+@ubuntu-latest_nvfortran_release
+options run --example --all
+options --compiler nvfortran
+options --profile release
+
+@ubuntu-latest_flang-new_debug
+options test target --all
+options --compiler flang-new
+options --profile debug
+
+@ubuntu-latest_flang-new_release
+options test target --all
+options --compiler flang-new
+options --profile release
+
+@ubuntu-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+
+@ubuntu-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
+
+
+## macOS
+@macos-latest_gfortran_debug
+options test target --all
+options --compiler gfortran
+options --profile debug
+
+@macos-latest_gfortran_release
+options test target --all
+options --compiler gfortran
+options --profile release
+
+@macos-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+
+@macos-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
+
+
+## windows
+@windows-latest_gfortran_debug
+options test target --all
+options --compiler gfortran
+options --profile debug
+
+@windows-latest_gfortran_release
+options test target --all
+options --compiler gfortran
+options --profile release
+
+@windows-latest_ifx_debug
+options test target --all
+options --compiler ifx
+options --profile debug
+
+@windows-latest_ifx_release
+options test target --all
+options --compiler ifx
+options --profile release
+
+@windows-latest_flang-new_debug
+options test target --all
+options --compiler flang-new
+
+@windows-latest_flang-new_release
+options test target --all
+options --compiler flang-new
+
+@windows-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+
+@windows-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
