@@ -4,7 +4,7 @@ module fordiff
 !! Module for numerical differentiation using complex step differentiation and finite difference methods
 !!
 
-   use kinds  !! for real(kind=rk) and complex(kind=rk). Use -DREAL32 for real kind 4 and -DREAL64 for real kind 8. Default is real kind 8.
+   use kinds, only: rk  !! for real(kind=rk) and complex(kind=rk). Use -DREAL32 for real kind 4 and -DREAL64 for real kind 8. Default is real kind 8.
 
    implicit none
 
@@ -37,7 +37,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             complex(rk), intent(in) :: z  !! scalar complex variable
             complex(rk)             :: fz !! scalar complex function
          end function f
@@ -66,7 +67,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             complex(rk), dimension(:), intent(in) :: z  !! vector complex variable
             complex(rk)                           :: fz !! scalar complex function
          end function f
@@ -98,7 +100,8 @@ contains
       interface
          !! vector-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             complex(rk), dimension(:), intent(in)  :: z  !! vector complex variable
             complex(rk), dimension(:), allocatable :: fz !! vector complex function
          end function f
@@ -131,7 +134,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), intent(in) :: z  !! scalar variable
             real(rk)             :: fz !! scalar function
          end function f
@@ -164,7 +168,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), intent(in) :: z  !! scalar variable
             real(rk)             :: fz !! scalar function
          end function f
@@ -188,7 +193,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), intent(in) :: z  !! scalar variable
             real(rk)             :: fz !! scalar function
          end function f
@@ -212,7 +218,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), intent(in) :: z  !! scalar variable
             real(rk)             :: fz !! scalar function
          end function f
@@ -237,9 +244,10 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in) :: z  !! vector variable
-            real(rk)                           :: fz !! scalar function        
+            real(rk)                           :: fz !! scalar function
          end function f
       end interface
 
@@ -272,7 +280,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in) :: z  !! vector variable
             real(rk)                           :: fz !! scalar function
          end function f
@@ -302,7 +311,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in) :: z  !! vector variable
             real(rk)                           :: fz !! scalar function
          end function f
@@ -332,7 +342,8 @@ contains
       interface
          !! scalar-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in) :: z  !! vector variable
             real(rk)                           :: fz !! scalar function
          end function f
@@ -361,7 +372,8 @@ contains
       interface
          !! vector-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: z  !! vector variable
             real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
@@ -396,7 +408,8 @@ contains
       interface
          !! vector-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: z  !! vector variable
             real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
@@ -428,7 +441,8 @@ contains
       interface
          !! vector-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: z  !! vector variable
             real(rk), dimension(:), allocatable :: fz !! vector function
          end function f
@@ -460,7 +474,8 @@ contains
       interface
          !! vector-valued function to differentiate
          impure function f(z) result(fz)
-            use kinds
+            use kinds, only: rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: z  !! vector variable
             real(rk), dimension(:), allocatable :: fz !! vector function
          end function f

@@ -93,4 +93,4 @@ display             = ["public", "private", "protected"]
 
 
 [extra.fortitude.check]
-ignore = ["S001", "S061", "C003", "E001"]
+ignore = ["C131", "C003"]
