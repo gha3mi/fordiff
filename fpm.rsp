@@ -34,11 +34,13 @@ options --profile release
 options test target --all
 options --compiler flang-new
 options --profile debug
+options --flag "-cpp"
 
 @ubuntu-latest_flang-new_release
 options test target --all
 options --compiler flang-new
 options --profile release
+options --flag "-cpp"
 
 @ubuntu-latest_lfortran_debug
 options test target --all
@@ -97,10 +99,12 @@ options --profile release
 @windows-latest_flang-new_debug
 options test target --all
 options --compiler flang-new
+options --flag "-cpp"
 
 @windows-latest_flang-new_release
 options test target --all
 options --compiler flang-new
+options --flag "-cpp"
 
 @windows-latest_lfortran_debug
 options test target --all
