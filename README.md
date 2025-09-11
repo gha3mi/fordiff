@@ -1,8 +1,9 @@
 [![GitHub](https://img.shields.io/badge/GitHub-fordiff-blue.svg?style=social&logo=github)](https://github.com/gha3mi/fordiff)
-[![Version](https://img.shields.io/github/release/gha3mi/fordiff.svg)](https://github.com/gha3mi/fordiff/releases/latest)
+[![Version](https://img.shields.io/github/v/tag/gha3mi/fordiff?label=version&sort=semver)](https://github.com/gha3mi/fordiff/releases)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/fordiff/)
+[![Setup Fortran Conda CI/CD](https://github.com/gha3mi/fordiff/actions/workflows/CI-CD.yml/badge.svg?branch=main)](https://github.com/gha3mi/fordiff/actions/workflows/CI-CD.yml)
 [![License](https://img.shields.io/github/license/gha3mi/fordiff?color=green)](https://github.com/gha3mi/fordiff/blob/main/LICENSE)
-[![Build](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/fordiff/actions/workflows/CI_test.yml)
+
 
 **ForDiff**: A Fortran library for numerical differentiation
 
@@ -12,6 +13,7 @@
 - [Run Demos](#run-demos)
 - [Run Tests](#run-tests)
 - [TODO](#todo)
+- [CI Status](#ci-status)
 - [API documentation](#api-documentation)
 - [Contributing](#contributing)
 
