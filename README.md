@@ -53,13 +53,11 @@ fpm run --example demo3
 
 ## Run Tests
 
-The `tests` directory contains test programs to verify the functionality of the `fordiff` module. To run the tests using `fpm`, you can use response files for specific compilers:
+The `tests` directory contains test programs to verify the functionality of the `fordiff` module. To run the tests using `fpm`, you can use:
 
 ```bash
-fpm @test-<compiler>
+fpm test
 ```
-
-`<compiler>: gfortran, ifx, ifort, nvfortran`
 
 ## TODO
 - [x] Complex-step: f(x) f is a scalar-valued function and x is a scalar variable
@@ -70,6 +68,11 @@ fpm @test-<compiler>
 - [x] Finite Difference: f(x) f is a vector-valued function and x is a vector variable
 - [ ] Automatic Differentiation
 
+## CI Status
+
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
+
 ## API documentation
 
 The most up-to-date API documentation for the main branch is available
@@ -79,7 +82,7 @@ To generate the API documentation for `ForDiff` using
 command:
 
 ```shell
-ford ford.yml
+ford README.md
 ```
 
 ## Contributing
