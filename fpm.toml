@@ -25,8 +25,10 @@ source-form       = "free"
 [preprocess.cpp]
 
 [dependencies]
-kinds       = {git="https://github.com/gha3mi/kinds.git"}
-forunittest = {git="https://github.com/gha3mi/forunittest.git"}
+kinds = {git="https://github.com/gha3mi/kinds.git"}
+
+[dev-dependencies]
+forunittest = {git="https://github.com/gha3mi/forunittest"}
 
 [[test]]
 name       = "test1"
