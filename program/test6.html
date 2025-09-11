@@ -132,9 +132,9 @@
             <a class="list-group-item" href="../program/test6.html#variable-dfdx_b~3">dfdx_b</a>
             <a class="list-group-item" href="../program/test6.html#variable-dfdx_c~3">dfdx_c</a>
             <a class="list-group-item" href="../program/test6.html#variable-dfdx_f~3">dfdx_f</a>
-            <a class="list-group-item" href="../program/test6.html#variable-expected_dfdx~6">expected_dfdx</a>
-            <a class="list-group-item" href="../program/test6.html#variable-i~12">i</a>
-            <a class="list-group-item" href="../program/test6.html#variable-ut~6">ut</a>
+            <a class="list-group-item" href="../program/test6.html#variable-expected_dfdx~5">expected_dfdx</a>
+            <a class="list-group-item" href="../program/test6.html#variable-i~11">i</a>
+            <a class="list-group-item" href="../program/test6.html#variable-ut~5">ut</a>
         </div>
       </div>
     </div>
@@ -176,10 +176,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">kinds</li>
-                  <li class="list-inline-item">forunittest</li>
-                  <li class="list-inline-item"><a href='../module/mod_func6.html'>mod_func6</a></li>
                   <li class="list-inline-item"><a href='../module/fordiff.html'>fordiff</a></li>
+                  <li class="list-inline-item">forunittest</li>
+                  <li class="list-inline-item">kinds</li>
+                  <li class="list-inline-item"><a href='../module/mod_func6.html'>mod_func6</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -768,7 +768,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected_dfdx~6"></span>
+              <span class="anchor" id="variable-expected_dfdx~5"></span>
               real(kind=rk),
             </td>
             <td>
@@ -784,7 +784,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~12"></span>
+              <span class="anchor" id="variable-i~11"></span>
               integer
             </td>
             <td>
@@ -800,7 +800,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ut~6"></span>
+              <span class="anchor" id="variable-ut~5"></span>
               type(unit_test)
             </td>
             <td>
@@ -855,7 +855,7 @@ large graphs.</div>
 <span class="w">   </span><span class="n">expected_dfdx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
 <span class="w">   </span><span class="n">expected_dfdx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5_rk</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
 <span class="w">   </span><span class="n">expected_dfdx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_rk</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="w"></span>
-<span class="w">   </span><span class="n">expected_dfdx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="w">   </span>
+<span class="w">   </span><span class="n">expected_dfdx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_rk</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0_rk</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="w"></span>
 
 <span class="w">   </span><span class="c">! check if derivative is correct</span>
 <span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">dfdx_f</span><span class="p">,</span><span class="w"> </span><span class="n">expected_dfdx</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-2_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test6.1&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
@@ -887,7 +887,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-09-11T20:54:44.207370+0000             </p>
+ on 2025-09-11T21:01:07.631204+0000             </p>
           </div>
         </div>
         <br>

@@ -47,7 +47,7 @@ program test3
    expected_dfdx(2,1) = 3.0_rk*(1.0_rk)**2
    expected_dfdx(2,2) = 1.5_rk*(-1.0_rk)**2
    expected_dfdx(3,1) = 4.0_rk*(1.0_rk)**3
-   expected_dfdx(3,2) = 2.0_rk*(-1.0_rk)**3   
+   expected_dfdx(3,2) = 2.0_rk*(-1.0_rk)**3
 
    ! check if derivative is correct
    call ut%check(dfdx, expected_dfdx, 1.0e-6_rk, 'test3' )

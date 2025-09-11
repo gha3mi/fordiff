@@ -34,7 +34,7 @@ program test4
 
    ! compute derivative using forward mode
    dfdx_f = derivative(f=func4, x=1.0_rk, h=1e-5_rk, method='forward')
-   
+
    ! compute derivative using backward mode
    dfdx_b = derivative(f=func4, x=1.0_rk, h=1e-5_rk, method='backward')
 
