@@ -1,7 +1,8 @@
 !===============================================================================
 module mod_func6
 
-   use kinds, only: rk
+   use fordiff, only: rk
+
    implicit none
 
 contains
@@ -26,8 +27,7 @@ end module mod_func6
 !===============================================================================
 program test6
 
-   use kinds, only: rk
-   use fordiff, only: derivative
+   use fordiff, only: rk, derivative
    use mod_func6, only: func6
    use forunittest, only: unit_test
 
